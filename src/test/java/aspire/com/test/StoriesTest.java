@@ -118,7 +118,7 @@ public class StoriesTest extends JUnitStories {
 		// asList("**/" + storyNames + ".story"), null);
 
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/AKC-Link-Stories/" + System.getProperty("storyFilter", "004-Add-New-Collar-Service") + ".story"), null);
+				asList("**/User/" + System.getProperty("storyFilter", "002-Login-Service-Negative") + ".story"), null);
 
 	}
 
