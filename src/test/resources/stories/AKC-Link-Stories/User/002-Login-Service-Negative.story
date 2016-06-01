@@ -1,7 +1,7 @@
 Narrative:
 In order to test Login service
 As a tester
-I want to make sure all return the code 200
+I want to make sure all return the code 409
                                   
 Scenario: Negative-TC-001 Login service 
 Given service method is post
@@ -83,6 +83,18 @@ And we set Body with {
     "loginProvider": "LINK", 
     "loginProviderId": "99x@r.com",
     "password": "PA@SWARD",
+    "loginProviderToken":""
+}
+Then the service response should be: 409
+
+Scenario: Negative-TC-010 Login service 
+Given service method is post
+When the service url is: Login_service
+And add to the header Content-Type with value application/json
+And we set Body with {
+    "loginProvider": "", 
+    "loginProviderId": "",
+    "password": "",
     "loginProviderToken":""
 }
 Then the service response should be: 409

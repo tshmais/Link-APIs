@@ -364,3 +364,28 @@ And we set Body with
    }
 }
 Then the service response should be: 400
+
+
+Scenario: Negative-TC-020 Create User service
+Given service method is post
+When the service url is: Create_User_service
+And add to the header Content-Type with value application/json
+And we set Body with 
+{
+ "name": "",
+ "emailAddress": "",
+ "phoneNo": "",
+ "cellNo": "",
+ "facebookUserId": "",
+ "gender": "",
+ "timezone": "",
+ "locale": "",
+ "credentials": 
+   {
+    "loginProvider": "",
+    "loginProviderId": "",
+    "passwordText": "",
+    "loginProviderToken": ""
+   }
+}
+Then the service response should be: 409
