@@ -15,6 +15,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
 
 import com.aspire.automationReport.ASReport;
@@ -39,7 +40,10 @@ public class Steps {
 	public String emailAddress;
 	public String StringjsonResponse;
 	public String response;
-	
+	public static String Date;
+	public String ZipCode;
+	public String Location;
+ 
 	
 	private String getRootUrl() {
 		Map<String, String> env = System.getenv();
@@ -51,7 +55,9 @@ public class Steps {
 		return root_url;
 	}
 	
+	
 	@When("the service url is: $url")
+	@Given("the service url is: $url")
 	public void setServiceURL(String url) throws URISyntaxException {
 
 		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
@@ -211,7 +217,21 @@ public void addUrlParameters(String value) {
 	System.err.println("New URL with Parameter is : " + URL);
 	
 	reqHandler.equals((URL));
+
+
+
+}
+
+@Then("json path $expression should equal:$expected")
+@When("json path $expression should equal:$expected")
+public void getItem(String expression, String expected)
+		throws JSONException {
+	// JsonReader.GenerateJson("sql_get_all_users");
+	String result = JsonPath.parse(StringjsonResponse).read(expression,
+			String.class);
+
 }
 
 }
+
 
