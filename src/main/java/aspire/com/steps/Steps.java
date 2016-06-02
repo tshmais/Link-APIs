@@ -101,19 +101,12 @@ public class Steps {
 
 	@When("add to the header $name with value $value")
 	public void setHeader(String name, String value) {
-		try {
 			reqHandler.setRequestHeader(name, value);
-		} catch (Exception e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-
 	}
 
 	@When("we set Body with $json")
 	@Then("we set Body with $json")
-	public void setJsonBody(String json) {
+	public void setJsonBody(String json) throws UnsupportedEncodingException {
 		if (json.equalsIgnoreCase("null")) {
 			json = "";
 		}
@@ -123,21 +116,14 @@ public class Steps {
 					+ "@linkbyakc.com";
 			json = json.replace("Generated-Email", emailAddress);
 		}
-		try {
 			reqHandler.setRequestBody(json);
 			System.out.print(json);
 
-		} catch (UnsupportedEncodingException e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
 	}
 
 	@When("the service response should be: $status")
 	@Then("the service response should be: $status")
-	public void checkStatusCode(Integer status) {
-		try {
+	public void checkStatusCode(Integer status) throws ClientProtocolException, URISyntaxException, IOException {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
@@ -148,10 +134,6 @@ public class Steps {
 			assertThat(resp.getStatusLine().getStatusCode(),
 					org.hamcrest.CoreMatchers.is(status));
 
-		} catch (Exception e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-		}
 
 	}
 
@@ -159,13 +141,9 @@ public class Steps {
 	public void jsonPathShouldNotExist(String expression) {
 
 		String result = null;
-		try {
 			result = JsonPath.parse(jsonResponse.toString()).read(expression,
 					String.class);
-		} catch (Exception e) {
-			// swallow exception
-			System.out.print(e.getMessage());
-		}
+
 
 		Assert.assertNull(result);
 	}
@@ -184,7 +162,7 @@ public class Steps {
 
 	@When("the service url changes to: $url")
 	@Then("the service url changes to: $url")
-	public void setServicesURL(String url) {
+	public void setServicesURL(String url) throws URISyntaxException {
 
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
@@ -198,12 +176,7 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
 		}
 
-		try {
 			reqHandler.setRequestUrl(URL);
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			System.out.print("AKC ERROR: " + e.getMessage());
-		}
 
 		ASReport.getInstance().append(URL);
 	}
@@ -237,6 +210,7 @@ public class Steps {
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	//@When("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	public void test(String NodeName, String ArrayOrder, String expected) {
+		NodeName ="userId";
 		JsonObject jsonObject = gson.fromJson(StringjsonResponse, JsonObject.class);
 		JsonElement x1 = jsonObject.get(NodeName); // returns a JsonElement for that name
 		System.out.print(x1);
