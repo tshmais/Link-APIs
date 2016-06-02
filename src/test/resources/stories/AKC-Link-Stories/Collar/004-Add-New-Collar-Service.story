@@ -22,11 +22,10 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And url contains the parameter: 355
 And we set Body with {
-    "imei" : "24634756734522{{$randomInt}}",
+    "imei" : "24634756734522",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : "1.1"
 }
 Then the service response should be: 201
 And json path $.error.code should not exist.
-
 
