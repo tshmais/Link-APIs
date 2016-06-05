@@ -6,7 +6,9 @@ In order to test Create_User service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario: Positive-TC-001 Create User service
+Scenario: Positive TC-001: Create User service
+by pass new valid data for user that does not exist in DB (for M)
+
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json

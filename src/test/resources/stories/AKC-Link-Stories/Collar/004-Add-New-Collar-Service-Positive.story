@@ -3,7 +3,9 @@ In order to test New_Collar service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario: Add New Collar service
+Scenario: Positive TC-001: Add Collar service 
+by pass valid data for New Collar parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

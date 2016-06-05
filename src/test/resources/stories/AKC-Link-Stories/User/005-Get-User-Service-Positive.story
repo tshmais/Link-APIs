@@ -33,4 +33,4 @@ And json path $.gender should equal:M
 And json path $.timezone should equal:America/New_York
 And json path $.locale should equal:en_US
 
-
+add new lines

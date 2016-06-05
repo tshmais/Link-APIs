@@ -4,7 +4,9 @@ As a tester
 I want to make sure all return the code 201 for POST scenarios and 200 for GET scenarios
 
 
-Scenario: Negative TC-001 Add User Dog service    
+Scenario: Negative TC-001: Add User Dog service 
+by pass empty data for name parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -42,7 +44,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-002 Add User Dog service    
+Scenario: Negative TC-002: Add User Dog service
+ by pass empty data for photo parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -80,7 +84,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-003 Add User Dog service    
+Scenario: Negative TC-003: Add User Dog service
+ by pass empty data for gender parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -119,7 +125,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-004 Add User Dog service    
+Scenario: Negative TC-004: Add User Dog service
+ by pass empty data for neutered parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -157,7 +165,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-005 Add User Dog service    
+Scenario: Negative TC-005: Add User Dog service 
+by pass empty data for age parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -195,7 +205,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-006 Add User Dog service    
+Scenario: Negative TC-006: Add User Dog service 
+by pass empty data for purebred parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -233,7 +245,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-007 Add User Dog service    
+Scenario: Negative TC-007: Add User Dog service
+ by pass empty data with purebred "true"for breedId1 , breedId2 parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -271,7 +285,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-008 Add User Dog service    
+Scenario: Negative TC-008: Add User Dog service
+ by pass empty data with purebred "false"for breedId1 , breedId2 parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -309,7 +325,10 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-009 Add User Dog service    
+Scenario: Negative TC-009: Add User Dog service 
+by pass empty data with purebred "false" and 
+pass datat for breedId1 and 2 for breed_id1_percentage parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -347,7 +366,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-010 Add User Dog service    
+Scenario: Negative TC-010: Add User Dog service
+ by pass empty data for description parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -385,7 +406,9 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-011 Add User Dog service    
+Scenario: Negative TC-011: Add User Dog service
+ by pass empty data for dateOfBirth parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -423,7 +446,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-012 Add User Dog service    
+Scenario: Negative TC-012: Add User Dog service
+ by pass empty data for weight parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -461,7 +486,9 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-013 Add User Dog service    
+Scenario: Negative TC-013: Add User Dog service
+ by pass empty data for eyeColor parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -499,7 +526,9 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-014 Add User Dog service    
+Scenario: Negative TC-014: Add User Dog service 
+by pass empty data for weightClass parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -537,7 +566,9 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-015 Add User Dog service    
+Scenario: Negative TC-015: Add User Dog service 
+by pass empty data for akcRegistrationNo parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -575,7 +606,9 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-016 Add User Dog service    
+Scenario: Negative TC-016: Add User Dog service 
+by pass invalid data for name parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -613,7 +646,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-017 Add User Dog service    
+Scenario: Negative TC-017: Add User Dog service 
+by pass invalid data for photo parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -652,7 +687,9 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: Negative TC-018 Add User Dog service    
+Scenario: Negative TC-018: Add User Dog service
+ by pass invalid data for gender parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -690,7 +727,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-019 Add User Dog service    
+Scenario: Negative TC-019: Add User Dog service 
+by pass invalid data for neutered parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -728,7 +767,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-020 Add User Dog service    
+Scenario: Negative TC-020: Add User Dog service
+ by pass invalid data for age parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -766,7 +807,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-021 Add User Dog service    
+Scenario: Negative TC-021: Add User Dog service 
+by pass invalid data for purebred parameter
+ 
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -804,7 +847,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-022 Add User Dog service    
+Scenario: Negative TC-022: Add User Dog service 
+by pass invalid data for breedId1 parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -843,7 +888,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-023 Add User Dog service    
+Scenario:Negative TC-023: Add User Dog service
+ by pass invalid data for breedId2 parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -882,7 +929,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-024 Add User Dog service    
+Scenario: Negative TC-024: Add User Dog service 
+by pass invalid data for breed_id1_percentage parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -921,7 +970,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-025 Add User Dog service    
+Scenario: Negative TC-025: Add User Dog service 
+by pass invalid data for description parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -960,7 +1011,9 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: Negative TC-026 Add User Dog service    
+Scenario: Negative TC-026: Add User Dog service
+ by pass invalid data for dateOfBirth parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -998,7 +1051,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-027 Add User Dog service    
+Scenario: Negative TC-027: Add User Dog service
+ by pass invalid data for weight parameter
+e    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1036,7 +1091,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-028 Add User Dog service    
+Scenario: Negative TC-028: Add User Dog service 
+by pass invalid data for eyeColor parameter
+
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1075,7 +1132,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-029 Add User Dog service    
+Scenario: Negative TC-029: Add User Dog service
+by pass invalid data for weightClass parameter
+ 
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1114,7 +1173,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-030 Add User Dog service    
+Scenario: Negative TC-030: Add User Dog service 
+by pass invalid data for akcRegistrationNo parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1152,7 +1213,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-031 Add User Dog service    
+Scenario: Negative TC-031: Add User Dog service
+ by pass empty data for all parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1191,7 +1254,10 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-032 Add User Dog service    
+Scenario: Negative TC-032: Add User Dog service 
+by pass invalid data  (-1,0,24, 26,49,51,74,76,60,100,255)
+for breed_id1_percentage parameter
+  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1230,7 +1296,9 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-033 Add User Dog service    
+Scenario: Negative TC-033: Add User Dog service
+ by pass invalid data (-1) for age parameter
+    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -1268,7 +1336,9 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Negative TC-034 Add User Dog service    
+Scenario: Negative TC-034: Add User Dog service 
+by pass invalid data  (51)for age parameter
+   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
