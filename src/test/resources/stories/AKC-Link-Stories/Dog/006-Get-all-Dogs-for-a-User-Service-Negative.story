@@ -1,7 +1,7 @@
 Narrative:
 In order to test User's_Dogs service
 As a tester
-I want to make sure all return the code 200 for GET scenarios
+I want to make sure all return the code 4XX for GET scenarios
 
 Scenario: Negative TC-001: service Get all dogs for a user by pass empty data for  parameter
 
@@ -42,10 +42,10 @@ And Retrieve json path $.access_token response
 
 And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: @
+And url contains the parameter: 36
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-Then the service response should be: 400
+Then the service response should be: 403
 And json path $.error.code should not exist.
 
 Scenario: Negative TC-003: service Get all dogs for a user by pass user not exist for  parameter
@@ -67,6 +67,6 @@ And service method is get
 And url contains the parameter: 8199
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-Then the service response should be: 400
+Then the service response should be: 404
 And json path $.error.code should not exist.
 
