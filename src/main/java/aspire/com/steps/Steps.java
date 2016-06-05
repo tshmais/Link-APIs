@@ -76,6 +76,7 @@ public class Steps {
 
 	@Given("service method is $method")
 	@When("service method is $method")
+@Then("service method is $method")
 	public void setMethod(String method) {
 		Method methodName;
 		switch (method) {
@@ -100,6 +101,7 @@ public class Steps {
 	}
 
 	@When("add to the header $name with value $value")
+	@Then("add to the header $name with value $value")
 	public void setHeader(String name, String value) {
 			reqHandler.setRequestHeader(name, value);
 	}
@@ -130,6 +132,7 @@ public class Steps {
 			System.out.print(resp.getStatusLine().getStatusCode());
 
 			StringjsonResponse = jsonResponse.toString();
+			
 
 			assertThat(resp.getStatusLine().getStatusCode(),
 					org.hamcrest.CoreMatchers.is(status));
@@ -160,12 +163,10 @@ public class Steps {
 		System.err.println("The token for the created item is: " + response);
 	}
 
-	@When("the service url changes to: $url")
-	@Then("the service url changes to: $url")
-	public void setServicesURL(String url) throws URISyntaxException {
-
-		if (url.toLowerCase().startsWith("http://www")
-				|| url.toLowerCase().startsWith("https://www")) {
+	@When("the service url changes to: $url with $param")
+	@Then("the service url changes to: $url with $param")
+	public void setServicesURL(String url, String param) throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
 			URL = url;
 		} else if (url.startsWith("%s")) {
 			URL = String.format(url, EnvirommentManager.getInstance()
@@ -175,8 +176,9 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
 		}
-
-			reqHandler.setRequestUrl(URL);
+		URL = URL.replaceFirst("\\[parameter\\]", param);
+		
+		reqHandler.setRequestUrl(URL);
 
 		ASReport.getInstance().append(URL);
 	}
@@ -191,11 +193,12 @@ public class Steps {
 	@Given("url contains the parameter: $value")
 	@When("url contains the parameter: $value")
 	@Then("url contains the parameter: $value")
-	public void addUrlParameters(String value) {
-		URL = URL.replaceFirst("\\[parameter\\]", value);
+	public void addUrlParameters(String value) throws URISyntaxException {
+		URL = URL.replaceFirst("\\[parameter]\\", value);
+		reqHandler.setRequestUrl(URL);
 		System.err.println("New URL with Parameter is : " + URL);
 
-		reqHandler.equals((URL));
+		
 
 	}
 
@@ -209,10 +212,14 @@ public class Steps {
 
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	//@When("json node is $NodeName for $ArrayOrder order should equal:$expected")
-	public void test(String NodeName, String ArrayOrder, String expected) {
-		NodeName ="userId";
-		JsonObject jsonObject = gson.fromJson(StringjsonResponse, JsonObject.class);
-		JsonElement x1 = jsonObject.get(NodeName); // returns a JsonElement for that name
-		System.out.print(x1);
+	public void test(String NodeName, int ArrayOrder, String expected) {
+		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
+		//assertThat(result, org.hamcrest.CoreMatchers.equalTo((result == null ? null : result.getAsString())));
+		
+		if(result.getAsJsonNull().equals(null)) {
+			Assert.assertEquals(result, null);
+		} else {
+			Assert.assertEquals(result.getAsString().trim(), expected);
+		}
 	}
 }
