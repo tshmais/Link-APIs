@@ -35,7 +35,7 @@ public class Steps {
 	private static String JsonResponse = null;
 	HttpRequestHandler reqHandler = HttpRequestHandler.getInstance();
 	Parsers parsers = new Parsers();
-	String URL, myResponse="myResponse";
+	String URL, myResponse = "myResponse";
 	JsonElement jsonResponse;
 	public String emailAddress;
 	public String StringjsonResponse;
@@ -43,8 +43,8 @@ public class Steps {
 	public static String Date;
 	public String ZipCode;
 	public String Location;
- 
-	
+	Gson gson = new Gson();
+
 	private String getRootUrl() {
 		Map<String, String> env = System.getenv();
 		String root_url = env.get("ROOT_URL");
@@ -54,18 +54,20 @@ public class Steps {
 		System.out.println("ROOT_URL: " + root_url);
 		return root_url;
 	}
-	
-	
+
 	@When("the service url is: $url")
 	@Given("the service url is: $url")
 	public void setServiceURL(String url) throws URISyntaxException {
 
-		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+		if (url.toLowerCase().startsWith("http://www")
+				|| url.toLowerCase().startsWith("https://www")) {
 			URL = url;
 		} else if (url.startsWith("%s")) {
 			URL = String.format(url, getRootUrl());
 		} else {
-			URL = String.format(EnvirommentManager.getInstance().getProperty(url), getRootUrl());
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
 		}
 
 		reqHandler.setRequestUrl(URL);
@@ -74,6 +76,7 @@ public class Steps {
 
 	@Given("service method is $method")
 	@When("service method is $method")
+@Then("service method is $method")
 	public void setMethod(String method) {
 		Method methodName;
 		switch (method) {
@@ -98,140 +101,125 @@ public class Steps {
 	}
 
 	@When("add to the header $name with value $value")
+	@Then("add to the header $name with value $value")
 	public void setHeader(String name, String value) {
-		try {
 			reqHandler.setRequestHeader(name, value);
-		} catch (Exception e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		
 	}
-	
+
 	@When("we set Body with $json")
 	@Then("we set Body with $json")
-	public void setJsonBody(String json) {
-		if(json.equalsIgnoreCase("null")){
-			   json="";}
-		if(json.contains("Generated-Email"))
-			       {
-			emailAddress = "user" +Integer.toString((int)Math.round(Math.random() * 99999)) + "@linkbyakc.com";
-			       json = json.replace("Generated-Email", emailAddress);}
-		try {
+	public void setJsonBody(String json) throws UnsupportedEncodingException {
+		if (json.equalsIgnoreCase("null")) {
+			json = "";
+		}
+		if (json.contains("Generated-Email")) {
+			emailAddress = "user"
+					+ Integer.toString((int) Math.round(Math.random() * 99999))
+					+ "@linkbyakc.com";
+			json = json.replace("Generated-Email", emailAddress);
+		}
 			reqHandler.setRequestBody(json);
 			System.out.print(json);
-			
-		} 
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-			       }
-	
+
+	}
+
 	@When("the service response should be: $status")
 	@Then("the service response should be: $status")
-	public void checkStatusCode(Integer status) {
-		try {
+	public void checkStatusCode(Integer status) throws ClientProtocolException, URISyntaxException, IOException {
 			CloseableHttpResponse resp = reqHandler.execute(myResponse);
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
 			System.out.print(resp.getStatusLine().getStatusCode());
-			
+
 			StringjsonResponse = jsonResponse.toString();
 			
-			assertThat(resp.getStatusLine().getStatusCode(), org.hamcrest.CoreMatchers.is(status));
 
-		} catch (Exception e) {
-			System.out.println("Error: ");
-			System.out.println(e.getMessage());
-		}
-		
+			assertThat(resp.getStatusLine().getStatusCode(),
+					org.hamcrest.CoreMatchers.is(status));
+
+
 	}
-	
+
 	@Then("json path $expression should not exist.")
 	public void jsonPathShouldNotExist(String expression) {
 
 		String result = null;
-		try {
-			result = JsonPath.parse(jsonResponse.toString()).read(expression, String.class);
-		} catch (Exception e) {
-			// swallow exception
-			System.out.print(e.getMessage());
-		}
+			result = JsonPath.parse(jsonResponse.toString()).read(expression,
+					String.class);
+
 
 		Assert.assertNull(result);
 	}
-
 
 	@When("Retrieve json path $expression response")
 	@Then("Retrieve json path $expression response")
 	public void RetrieveJsonItem(String expression) throws JSONException {
 		// JsonReader.GenerateJson("sql_get_all_users");
 
-		response = "bearer"+ " " + JsonPath.parse(StringjsonResponse).read(expression,
-				String.class);
-		System.err
-				.println("The token for the created item is: " + response);
+		response = "bearer"
+				+ " "
+				+ JsonPath.parse(StringjsonResponse).read(expression,
+						String.class);
+		System.err.println("The token for the created item is: " + response);
 	}
 
-
-@When("the service url changes to: $url")
-@Then("the service url changes to: $url")
-public void setServicesURL(String url) {
-
-	if (url.toLowerCase().startsWith("http://www")
-			|| url.toLowerCase().startsWith("https://www")) {
-		URL = url;
-	} else if (url.startsWith("%s")) {
-		URL = String.format(url, EnvirommentManager.getInstance().getProperty("ROOT_URL"));
-	} else {
-		URL = String.format(
-				EnvirommentManager.getInstance().getProperty(url),
-				EnvirommentManager.getInstance().getProperty("ROOT_URL"));
-	}
-
-	try {
+	@When("the service url changes to: $url with $param")
+	@Then("the service url changes to: $url with $param")
+	public void setServicesURL(String url, String param) throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, EnvirommentManager.getInstance()
+					.getProperty("ROOT_URL"));
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
+		}
+		URL = URL.replaceFirst("\\[parameter\\]", param);
+		
 		reqHandler.setRequestUrl(URL);
-	} catch (URISyntaxException e) {
-		// TODO Auto-generated catch block
-		System.out.print("AKC ERROR: " + e.getMessage());
+
+		ASReport.getInstance().append(URL);
 	}
-	
-	ASReport.getInstance().append(URL);
+
+	@When("add Session $name to Request header")
+	@Then("add Session $name to Request header")
+	public void addToken(String name) {
+
+		reqHandler.setRequestHeader(name, response);
+	}
+
+	@Given("url contains the parameter: $value")
+	@When("url contains the parameter: $value")
+	@Then("url contains the parameter: $value")
+	public void addUrlParameters(String value) throws URISyntaxException {
+		URL = URL.replaceFirst("\\[parameter]\\", value);
+		reqHandler.setRequestUrl(URL);
+		System.err.println("New URL with Parameter is : " + URL);
+
+		
+
+	}
+
+	@Then("json path $expression should equal:$expected")
+	@When("json path $expression should equal:$expected")
+	public void getItem(String expression, String expected)
+			throws JSONException {
+		// JsonReader.GenerateJson("sql_get_all_users");
+
+	}
+
+	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
+	//@When("json node is $NodeName for $ArrayOrder order should equal:$expected")
+	public void test(String NodeName, int ArrayOrder, String expected) {
+		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
+		//assertThat(result, org.hamcrest.CoreMatchers.equalTo((result == null ? null : result.getAsString())));
+		
+		if(result.getAsJsonNull().equals(null)) {
+			Assert.assertEquals(result, null);
+		} else {
+			Assert.assertEquals(result.getAsString().trim(), expected);
+		}
+	}
 }
-
-@When("add Session $name to Request header")
-@Then("add Session $name to Request header")
-public void addToken(String name) {
-
-	reqHandler.setRequestHeader(name,response);
-}
-
-@Given("url contains the parameter: $value")
-@When("url contains the parameter: $value")
-@Then("url contains the parameter: $value")
-public void addUrlParameters(String value) {
-	URL = URL.replaceFirst("\\[parameter\\]", value);
-	System.err.println("New URL with Parameter is : " + URL);
-	
-	reqHandler.equals((URL));
-
-
-
-}
-
-@Then("json path $expression should equal:$expected")
-@When("json path $expression should equal:$expected")
-public void getItem(String expression, String expected)
-		throws JSONException {
-	// JsonReader.GenerateJson("sql_get_all_users");
-	String result = JsonPath.parse(StringjsonResponse).read(expression,
-			String.class);
-
-}
-
-}
-
-

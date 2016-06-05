@@ -9,60 +9,64 @@ import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.BeforeStory;
 import org.openqa.selenium.WebDriverException;
-import com.aspire.automationReport.ASReport;
+import com.aspire.automationReport.AspireReport;
 
 public class LifecycleSteps {
-	
-    public LifecycleSteps() {
 
-    }
+	public LifecycleSteps() {
 
-    @BeforeStories
-    public void runBeforeAllStories() {
-        try {
-            // do something
-        } catch (WebDriverException e) {
-            e.printStackTrace();
-        }
-    }
+	}
 
-    @BeforeStory
-    public void runBeforeEachStory() {
-        try {
-        
-        	} catch (WebDriverException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    @BeforeScenario
-     public void runBeforeEachScinario() {
-    	// do something
-    }
-    
-    @AfterStory
-    public void runAfterEachStory() {
-        try {
-        	
-        } catch (WebDriverException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    @AfterStories
-    public void runAfterStories() {
-        try {
-        	boolean headless = GraphicsEnvironment.isHeadless();
-        	if (!headless) {
-				ASReport.getInstance().openReport();
+	@BeforeStories
+	public void runBeforeAllStories() {
+		try {
+			// do something
+		} catch (WebDriverException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@BeforeStory
+	public void runBeforeEachStory() {
+		try {
+			AspireReport.getInstance().setCurrentStoryStartDate();
+		} catch (WebDriverException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@BeforeScenario
+	public void runBeforeEachScinario() {
+		AspireReport.getInstance().setCurrentScenarioStartDate();
+	}
+
+	@AfterStory
+	public void runAfterEachStory() {
+		try {
+			AspireReport.getInstance().setCurrentStoryEndDate();
+			AspireReport.getInstance().printEveryThing();
+		} catch (WebDriverException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@AfterStories
+	public void runAfterStories() {
+		try {
+			AspireReport.getInstance().printEveryThing();
+			AspireReport.getInstance().getReportDataManager().openReport();
+
+			boolean headless = GraphicsEnvironment.isHeadless();
+			if (!headless) {
+
 			}
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    @AfterScenario
-    public void runAfterEachScenario() {
-        //deleteAllCookies();
-    }
+	@AfterScenario
+	public void runAfterEachScenario() {
+		// deleteAllCookies();
+	}
 }
