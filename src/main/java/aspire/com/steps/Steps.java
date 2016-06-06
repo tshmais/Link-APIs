@@ -132,12 +132,9 @@ public class Steps {
 			System.out.print(resp.getStatusLine().getStatusCode());
 
 			StringjsonResponse = jsonResponse.toString();
-			
 
 			assertThat(resp.getStatusLine().getStatusCode(),
 					org.hamcrest.CoreMatchers.is(status));
-
-
 	}
 
 	@Then("json path $expression should not exist.")
@@ -211,15 +208,8 @@ public class Steps {
 	}
 
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
-	//@When("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	public void test(String NodeName, int ArrayOrder, String expected) {
 		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
-		//assertThat(result, org.hamcrest.CoreMatchers.equalTo((result == null ? null : result.getAsString())));
-		
-		if(result.getAsJsonNull().equals(null)) {
-			Assert.assertEquals(result, null);
-		} else {
-			Assert.assertEquals(result.getAsString().trim(), expected);
-		}
+		Assert.assertEquals(result.isJsonNull() ? "null" : result.getAsString().trim(), expected);
 	}
 }
