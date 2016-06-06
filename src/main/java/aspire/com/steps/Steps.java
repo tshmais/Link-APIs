@@ -162,7 +162,7 @@ public class Steps {
 
 	@When("the service url changes to: $url with $param")
 	@Then("the service url changes to: $url with $param")
-	public void setServicesURL(String url, String param) throws URISyntaxException {
+	public void setServicesURLwithParam(String url, String param) throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
 			URL = url;
 		} else if (url.startsWith("%s")) {
@@ -179,6 +179,24 @@ public class Steps {
 
 		ASReport.getInstance().append(URL);
 	}
+	
+//	@When("the service url changes to: $url")
+//	public void setServicesURL(String url) throws URISyntaxException {
+//		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+//			URL = url;
+//		} else if (url.startsWith("%s")) {
+//			URL = String.format(url, EnvirommentManager.getInstance()
+//					.getProperty("ROOT_URL"));
+//		} else {
+//			URL = String.format(
+//					EnvirommentManager.getInstance().getProperty(url),
+//					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
+//		}
+//		
+//		reqHandler.setRequestUrl(URL);
+//
+//		ASReport.getInstance().append(URL);
+//	}
 
 	@When("add Session $name to Request header")
 	@Then("add Session $name to Request header")
@@ -187,17 +205,17 @@ public class Steps {
 		reqHandler.setRequestHeader(name, response);
 	}
 
-	@Given("url contains the parameter: $value")
-	@When("url contains the parameter: $value")
-	@Then("url contains the parameter: $value")
-	public void addUrlParameters(String value) throws URISyntaxException {
-		URL = URL.replaceFirst("\\[parameter]\\", value);
-		reqHandler.setRequestUrl(URL);
-		System.err.println("New URL with Parameter is : " + URL);
-
-		
-
-	}
+//	@Given("url contains the parameter: $value")
+//	@When("url contains the parameter: $value")
+//	@Then("url contains the parameter: $value")
+//	public void addUrlParameters(String value) throws URISyntaxException {
+//		URL = URL.replaceFirst("\\[parameter]\\", value);
+//		reqHandler.setRequestUrl(URL);
+//		System.err.println("New URL with Parameter is : " + URL);
+//
+//		
+//
+//	}
 
 	@Then("json path $expression should equal:$expected")
 	@When("json path $expression should equal:$expected")

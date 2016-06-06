@@ -19,10 +19,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -59,10 +58,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -100,10 +98,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -140,10 +137,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -181,10 +177,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -223,10 +218,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -265,10 +259,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -307,10 +300,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -351,10 +343,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -393,10 +384,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -435,10 +425,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -477,10 +466,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -519,10 +507,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -561,10 +548,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -602,10 +588,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -643,10 +628,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -685,10 +669,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -726,10 +709,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -768,10 +750,9 @@ And the service response should be: 200
 
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Post_Dog_to_User_service
+And the service url changes to: Post_Dog_to_User_service with 401
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 401
 And we set Body with {
   "name": "ABC",
   "photo": "https://cdn.xyz.com/…..jpg",
@@ -807,10 +788,9 @@ And we set Body with {
 
 And the service response should be: 200
 And Retrieve json path $.access_token response
-And the service url changes to: Get_User's_Dogs_service
+And the service url changes to: Get_User's_Dogs_service with 41
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 41
 And service method is get
 Then the service response should be: 200
 And json node is id for 0 order should equal:22
