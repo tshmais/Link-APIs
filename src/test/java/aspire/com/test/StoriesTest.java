@@ -79,7 +79,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/Dog/" + System.getProperty("storyFilter", "003-User's-Dogs-Service-Positive") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "*") + ".story"),
 				null);
 
 	}

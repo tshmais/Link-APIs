@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.jbehave.core.annotations.Given;
@@ -43,6 +44,7 @@ public class Steps {
 	public static String Date;
 	public String ZipCode;
 	public String Location;
+	public String imei;
 	Gson gson = new Gson();
 
 	private String getRootUrl() {
@@ -116,7 +118,12 @@ public class Steps {
 			emailAddress = "user"
 					+ Integer.toString((int) Math.round(Math.random() * 99999))
 					+ "@linkbyakc.com";
-			json = json.replace("Generated-Email", emailAddress);
+			json = json.replace("Generated-Email", emailAddress);}
+			
+			if (json.contains("Generated-imei")) {
+				imei = "123456789"
+						+ Integer.toString((int) Math.round(Math.random() * 99999));
+				json = json.replace("Generated-imei", imei);
 		}
 			reqHandler.setRequestBody(json);
 			System.out.print(json);
@@ -125,16 +132,21 @@ public class Steps {
 
 	@When("the service response should be: $status")
 	@Then("the service response should be: $status")
-	public void checkStatusCode(Integer status) throws ClientProtocolException, URISyntaxException, IOException {
-			CloseableHttpResponse resp = reqHandler.execute(myResponse);
-			jsonResponse = parsers.asJson(resp);
-			System.out.print(jsonResponse);
-			System.out.print(resp.getStatusLine().getStatusCode());
+	public void checkStatusCode(Integer status) {
+			try {
+				CloseableHttpResponse resp = reqHandler.execute(myResponse);
+				jsonResponse = parsers.asJson(resp);
+				System.out.print(jsonResponse);
+				System.out.print(resp.getStatusLine().getStatusCode());
 
-			StringjsonResponse = jsonResponse.toString();
+				StringjsonResponse = jsonResponse.toString();
 
-			assertThat(resp.getStatusLine().getStatusCode(),
-					org.hamcrest.CoreMatchers.is(status));
+				assertThat(resp.getStatusLine().getStatusCode(),
+						org.hamcrest.CoreMatchers.is(status));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	@Then("json path $expression should not exist.")

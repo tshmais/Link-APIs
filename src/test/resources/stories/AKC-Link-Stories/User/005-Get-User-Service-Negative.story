@@ -18,10 +18,9 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is get
-And the service url changes to: Get_User_service
+And the service url changes to: Get_User_service with 286
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-And url contains the parameter: 286
 Then the service response should be: 200
 And json path $.id should equal:286
 And json path $.version should equal:0

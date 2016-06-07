@@ -3,8 +3,7 @@ In order to test User's_Dogs service
 As a tester
 I want to make sure all return the code 200 for GET scenarios
 
-Scenario: Positive TC-001: service Get all dogs for a user 
-by pass valid data for New user parameter
+Scenario: Positive TC-001: service Get all dogs for a user by pass valid data for New user parameter
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -16,17 +15,14 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-
-And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: 406
+And the service url changes to: Get_User's_Dogs_service with 406
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json path $.error.code should not exist.
 
-Scenario: Positive TC-002: service Get all dogs for a user
- by pass valid data for old user parameter
+
+Scenario: Positive TC-002: service Get all dogs for a user by pass valid data for old user parameter
 
 Given service method is post
 When the service url is: Login_service
@@ -39,18 +35,16 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-
-And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: 2
+And the service url changes to: Get_User's_Dogs_service with 2
+
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json path $.error.code should not exist.
 
 
-Scenario: Positive TC-004: service Get all dogs for a user
- by pass valid data for user with multi dogs  parameter
+
+Scenario: Positive TC-004: service Get all dogs for a user by pass valid data for user with multi dogs  parameter
 
 Given service method is post
 When the service url is: Login_service
@@ -63,17 +57,14 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-
-And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: 379
+And the service url changes to: Get_User's_Dogs_service with 379
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json path $.error.code should not exist.
 
-Scenario:Positive TC-005: service Get all dogs for a user
- by pass valid data for user with one dog  parameter
+
+Scenario:Positive TC-005: service Get all dogs for a user by pass valid data for user with one dog  parameter
 
 Given service method is post
 When the service url is: Login_service
@@ -86,17 +77,14 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-
-And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: 407
+And the service url changes to: Get_User's_Dogs_service with 407
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json path $.error.code should not exist.
 
-Scenario: Positive TC-007: service Get all dogs for a user 
-by pass valid data for user without dogs parameter
+
+Scenario: Positive TC-007: service Get all dogs for a user by pass valid data for user without dogs parameter
 
 Given service method is post
 When the service url is: Login_service
@@ -109,11 +97,9 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-
-And the service url changes to: Get_User's_Dogs_service
 And service method is get
-And url contains the parameter: 408
+And the service url changes to: Get_User's_Dogs_service with 408
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json path $.error.code should not exist.
+
