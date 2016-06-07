@@ -15,9 +15,10 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {
     "imei" : "",
     "hardwareVersion" : "DS5s60",
@@ -27,7 +28,6 @@ And we set Body with {
 Then the service response should be: 409
 
 Scenario: Negative TC-002: Add Collar service by pass empty data for hardwareVersion parameter
-
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -39,16 +39,17 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {
   "imei" : "Generated-imei",
     "hardwareVersion" : "",
     "firmwareVersion" : "1.1"
 }
 
-Then the service response should be: 401
+Then the service response should be: 409
 
 
 Scenario: Negative TC-003: Add Collar service by pass empty data for firmwareVersion parameter
@@ -63,16 +64,17 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {
     "imei" : "Generated-imei",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : ""
 }
 
-Then the service response should be: 401 
+Then the service response should be: 409
 
 
 
@@ -88,16 +90,17 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {
     "imei" : "@233%",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : "1.1"
 }
 
-Then the service response should be: 401
+Then the service response should be: 409
 
 
 Scenario: Negative TC-005: Add Collar service by pass invalid data for hardwareVersion parameter
@@ -112,16 +115,17 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {
     "imei" : "123456788992",
     "hardwareVersion" : "%$",
     "firmwareVersion" : "1.1"
 }
 
-Then the service response should be: 401
+Then the service response should be: 409
 
 
 Scenario: Negative TC-006: Add Collar service by pass invalid data for firmwareVersion parameter
@@ -136,16 +140,17 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And we set Body with {	
     "imei" : "123456788992",
     "hardwareVersion" : "123",
     "firmwareVersion" : "(^)"
 }
 
-Then the service response should be: 401
+Then the service response should be: 409
                                     
 Scenario: Negative TC-008: Add Collar service by pass data for Non consistent token with the id parameter
 Given service method is post
@@ -159,9 +164,10 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
 And add to the header Authorization with value 55dffa77-870e-4c81-bfaf-c147944f2d31
 And we set Body with {
     "imei" : "24634756734522",
@@ -183,14 +189,14 @@ And we set Body with {
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
-Given service method is post
-When the service url changes to: Add_New_Collar_service with 355
+And service method is post
+And the service url changes to: Add_New_Collar_service with 355
 And add to the header Content-Type with value application/json
-And add to the header Authorization with value 55dffa77-870e-4c81-bfaf-c147944f2d31
+And add Session Authorization to Request header
 And we set Body with {
     "imei" : "",
     "hardwareVersion" : "",
     "firmwareVersion" : ""
 }
 
-Then the service response should be: 401
+Then the service response should be: 409

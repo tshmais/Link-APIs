@@ -79,7 +79,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/" + System.getProperty("storyFilter", "*") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "004-Add-New-Collar-Service-Negative") + ".story"),
 				null);
 
 	}
@@ -135,7 +135,7 @@ public class StoriesTest extends JUnitStories {
 		String OS = System.getProperty("os.name").toLowerCase();
 		System.out.println("Opertation system version: " + OS);
 
-		AspireReport.getInstance().getReportDataManager().setReportTitle("Aspire");
+		AspireReport.getInstance().getReportDataManager().setReportTitle("API");
 		AspireReport.getInstance().getReportDataManager().setReportSubTitle("testing report");
 		AspireReport.getInstance().getReportDataManager().setTitle("Aspire");
 
