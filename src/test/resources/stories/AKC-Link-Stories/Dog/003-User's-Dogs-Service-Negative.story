@@ -1,8 +1,7 @@
 Narrative:
 In order to test User's_Dogs service
 As a tester
-I want to make sure all return the code 201 for POST scenarios and 200 for GET scenarios
-
+I want to make sure all return the code 4xx for POST scenarios and 2xx for optinal parameter
 
 Scenario: Negative TC-001: Add User Dog service by pass empty data for name parameter
 Given service method is post

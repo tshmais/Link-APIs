@@ -1,6 +1,10 @@
 Meta:
 ReportName Create_User_Service_negative
 
+Narrative:
+In order to test New_Collar service
+As a tester
+I want to make sure all return the code 4xx
 
 Scenario: Negative TC-001: Create User service by pass empty data for name parameter
 Given service method is post

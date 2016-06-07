@@ -1,7 +1,7 @@
 Narrative:
 In order to test Login service
 As a tester
-I want to make sure all return the code 409
+I want to make sure all return the code 4xx
                                   
 Scenario: Negative TC-001: Login service by pass empty data for loginProvider parameter
 Given service method is post
