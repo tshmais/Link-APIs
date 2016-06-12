@@ -4,6 +4,8 @@ import static java.util.Arrays.asList;
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 import static org.jbehave.web.selenium.WebDriverHtmlOutput.WEB_DRIVER_HTML;
+
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -131,7 +133,10 @@ public class StoriesTest extends JUnitStories {
 		String dateAndTime = ft.format(date);
 		dateAndTime = dateAndTime.replace(",,", " ");
 		String ReportName = "Automation_Report_BuildNumber-" + buildName + "_" + dateAndTime + ".html";
+		
 		AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
+		
+		new File(AspireReport.getInstance().getReportDataManager().getReportPath()).mkdirs();
 		String OS = System.getProperty("os.name").toLowerCase();
 		System.out.println("Opertation system version: " + OS);
 
