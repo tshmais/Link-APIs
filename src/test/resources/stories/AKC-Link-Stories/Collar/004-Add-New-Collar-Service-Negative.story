@@ -1,7 +1,7 @@
 Narrative:
 In order to test New_Collar service
 As a tester
-I want to make sure all return the code 2xx
+I want to make sure all return the code 4xx
     
 Scenario: Negative TC-001: Add Collar service by pass empty data for imei parameter
 Given service method is post

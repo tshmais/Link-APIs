@@ -301,7 +301,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Negative TC-009: Add User Dog service by pass empty data with purebred "false" and pass datat for breedId1 and 2 for breed_id1_percentage parameter
+Scenario: Negative TC-009: Add User Dog service by pass empty data for breed_id1_percentage parameter
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

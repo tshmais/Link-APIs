@@ -42,7 +42,6 @@ And we set Body with {
 Then the service response should be: 201
 
 Scenario:Positive TC-002: Add User Dog service by pass valid same user data and same dog data parameters
- 
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

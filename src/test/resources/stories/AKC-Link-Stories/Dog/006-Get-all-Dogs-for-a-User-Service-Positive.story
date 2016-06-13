@@ -20,6 +20,9 @@ And the service url changes to: Get_User's_Dogs_service with 406
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
+And json path $[0].id should equal:0
+
+
 
 
 Scenario: Positive TC-002: service Get all dogs for a user by pass valid data for old user parameter
@@ -102,4 +105,3 @@ And the service url changes to: Get_User's_Dogs_service with 408
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-
