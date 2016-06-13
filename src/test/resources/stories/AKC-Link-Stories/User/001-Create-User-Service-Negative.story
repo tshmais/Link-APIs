@@ -1,12 +1,12 @@
 Meta:
-ReportName Create_User_Service_negative
-
+@ReportName Negative
+@User
 Narrative:
 In order to test New_Collar service
 As a tester
 I want to make sure all return the code 4xx
 
-Scenario: Negative TC-001: Create User service by pass empty data for name parameter
+Scenario: Negative TC-001: Verif Create User service using empty data  for name
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -31,7 +31,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: Negative TC-002: Create User service by pass empty data for emailAddress parameter
+Scenario: Negative TC-002: Verif Create User service using empty data  for email Address
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -55,7 +55,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-004: Create User service by pass empty data for gender parameter
+Scenario: Negative TC-004: Verif Create User service using empty data  for gender
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -79,7 +79,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-005: Create User service by pass empty data for timezone parameter
+Scenario: Negative TC-005: Verif Create User service using empty data  for timezone
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -103,7 +103,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-006: Create User service by pass empty data for locale parameter
+Scenario: Negative TC-006: Verif Create User service using empty data  for locale
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -127,7 +127,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-007: Create User service by pass empty data for loginProvider parameter
+Scenario: Negative TC-007: Verif Create User service using empty data  for loginProvider
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -151,7 +151,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-008: Create User service by pass empty data for loginProviderId parameter
+Scenario: Negative TC-008: Verif Create User service using empty data  for loginProviderId
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -175,7 +175,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-009 Create User service by pass empty data for passwordText parameter
+Scenario: Negative TC-009: Verif Create User service using empty data  for passwordText
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -199,7 +199,7 @@ And we set Body with
 }
 Then the service response should be: 400
 
-Scenario: Negative TC-011: Create User service by pass invalid data for emailAddress parameter
+Scenario: Negative TC-011: Verif Create User service using invalid data  for email Address
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -224,7 +224,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: Negative TC-013: Create User service by pass invalid data for facebookUserId parameter
+Scenario: Negative TC-013: Verif Create User service using invalid data  for gender
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -248,7 +248,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-014: Create User service by pass invalid data for timezone parameter
+Scenario: Negative TC-014: Verif Create User service using invalid data  for timezone
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -273,7 +273,7 @@ And we set Body with
 Then the service response should be: 409
 
 
-Scenario: Negative TC-015 Create User service by pass invalid data for locale parameter
+Scenario: Negative TC-015: Verif Create User service using invalid data  for locale
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -297,7 +297,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-016: Create User service by pass invalid data for loginProvider parameter
+Scenario: Negative TC-016: Verif Create User service using invalid data  for loginProvider
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -321,7 +321,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-017: Create User service by pass invalid data for loginProviderId parameter
+Scenario: Negative TC-017: Verif Create User service using invalid data  for loginProviderId
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -345,7 +345,7 @@ And we set Body with
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-018: Create User service by pass invalid data for passwordText parameter
+Scenario: Negative TC-018: Verif Create User service using invalid data  for passwordText
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -370,7 +370,7 @@ And we set Body with
 Then the service response should be: 400
 
 
-Scenario: Negative TC-020: Create User service by pass empty data for ALL parameters
+Scenario: Negative TC-020: Verif Create User service using invalid data  for all prameters 
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json

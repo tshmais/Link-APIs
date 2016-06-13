@@ -1,9 +1,13 @@
+Meta:
+@ReportName Negative
+@User
+
 Narrative:
 In order to test Login service
 As a tester
 I want to make sure all return the code 4xx
                                   
-Scenario: Negative TC-001: Login service by pass empty data for loginProvider parameter
+Scenario: Negative TC-001: Verify Login service using empty data  for loginProvider
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -15,7 +19,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-002:  Login Service by pass empty data for loginProviderId parameter
+Scenario: Negative TC-002: Verify Login service using empty data  for loginProviderId
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -27,7 +31,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-003: Login Service by pass empty data for password parameter
+Scenario: Negative TC-003: Verify Login service using empty data  for password
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -39,7 +43,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-005: Login Service by pass invalid data for loginProvider parameter
+Scenario: Negative TC-005: Verify Login service using invalid data for loginProvider
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -51,7 +55,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-006: Login Service by pass invalid data for loginProviderId parameter
+Scenario: Negative TC-006: Verify Login service using invalid data for loginProviderId
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -63,7 +67,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-007: Login Service by pass invalid data for password parameter
+Scenario: Negative TC-007: Verify Login service using invalid data for password
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -75,7 +79,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-009: Login Service by pass user data not exist for  parameter
+Scenario: Negative TC-009: Verify Login service using user data for user not exist
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -87,7 +91,7 @@ And we set Body with {
 }
 Then the service response should be: 409
 
-Scenario: Negative TC-010: Login Service by pass empty for All parameter
+Scenario: Negative TC-010: Verify Login service using empty data for All paramters
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

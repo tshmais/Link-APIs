@@ -1,9 +1,13 @@
+Meta:
+@ReportName Positive
+@Dog
+
 Narrative:
 In order to test User's_Dogs service
 As a tester
 I want to make sure all return the code 200 for GET scenarios
 
-Scenario: Positive TC-001: service Get all dogs for a user by pass valid data for New user parameter
+Scenario: Positive TC-001: Verify  Get all dogs for a user service using valid data  for New user
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -25,7 +29,7 @@ And json path $[0].id should equal:0
 
 
 
-Scenario: Positive TC-002: service Get all dogs for a user by pass valid data for old user parameter
+Scenario: Positive TC-002: Verify  Get all dogs for a user service using valid data  for old user
 
 Given service method is post
 When the service url is: Login_service
@@ -47,7 +51,7 @@ Then the service response should be: 200
 
 
 
-Scenario: Positive TC-004: service Get all dogs for a user by pass valid data for user with multi dogs  parameter
+Scenario: Positive TC-004: Verify  Get all dogs for a user service using valid data  for user with multi dogs 
 
 Given service method is post
 When the service url is: Login_service
@@ -67,7 +71,7 @@ And add Session Authorization to Request header
 Then the service response should be: 200
 
 
-Scenario:Positive TC-005: service Get all dogs for a user by pass valid data for user with one dog  parameter
+Scenario:Positive TC-005: Verify  Get all dogs for a user service using valid data  for user with one dog 
 
 Given service method is post
 When the service url is: Login_service
@@ -87,7 +91,7 @@ And add Session Authorization to Request header
 Then the service response should be: 200
 
 
-Scenario: Positive TC-007: service Get all dogs for a user by pass valid data for user without dogs parameter
+Scenario: Positive TC-007: Verify  Get all dogs for a user service using valid data  for user without dogs
 
 Given service method is post
 When the service url is: Login_service

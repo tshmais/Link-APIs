@@ -1,10 +1,14 @@
+Meta:
+@ReportName Positive
+@User
+
 Narrative:
 In order to test Get User Service
 As a tester
 I want to make sure all return the code 200
 
 
-Scenario: Positive TC-001: Get User data service by pass valid data for new LINK user parameter
+Scenario: Positive TC-001: Verify Get User data service using valid data for new LINK user
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -35,7 +39,7 @@ And json path $.locale should equal:en_US
 add new lines
 
 
-Scenario: Positive TC-002: Get User data service by pass valid data for old LINK user parameter
+Scenario: Positive TC-002: Verify Get User data service using valid data for old LINK user
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

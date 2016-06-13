@@ -1,10 +1,14 @@
+Meta:
+@ReportName Positive
+@Dog
+
 Narrative:
 In order to test User's_Dogs service
 As a tester
 I want to make sure all return the code 201 for POST scenarios and 200 for GET scenarios
 
 
-Scenario: Positive TC-001: Add User Dog service by pass valid user and dog  parameters   
+Scenario: Positive TC-001: Verify  Add User Dog service using valid user data  for and valid dog data  
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -41,7 +45,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario:Positive TC-002: Add User Dog service by pass valid same user data and same dog data parameters
+Scenario:Positive TC-002: Verify  Add User Dog service using valid same user data  for and valid same dog data
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -79,8 +83,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario:Positive TC-003: Add User Dog service by pass neutered "true" and valid dog data parameters
-    
+Scenario:Positive TC-003: Verify Add User Dog service using neutered "true" for and valid dog data 
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -117,7 +120,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-004: Add User Dog service by pass neutered "false" and valid dog data parameters
+Scenario: Positive TC-004: Verify Add User Dog service using neutered "false" for and valid dog data
   
 Given service method is post
 When the service url is: Login_service
@@ -155,7 +158,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-005: Add User Dog service by pass purebred "true" without breedId1 and breedId2 for valid dog data parameters
+Scenario: Positive TC-005: Verify  Add User Dog service using  purebred "true" without breedId1 and breedId2 for and valid dog data
   
 Given service method is post
 When the service url is: Login_service
@@ -193,7 +196,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-006: Add User Dog service by pass purebred "true" without breedId1 with breedId2 for valid dog data parameters
+Scenario: Positive TC-006: Verify  Add User Dog service using purebred "true" without breedId1 with breedId2 for and valid dog data
    
 Given service method is post
 When the service url is: Login_service
@@ -232,7 +235,7 @@ And we set Body with {
     
 Then the service response should be: 409
 
-Scenario: Positive TC-007: Add User Dog service by pass purebred "true" with breedId1 without breedId2 for valid dog data parameters
+Scenario: Positive TC-007: Verify Add User Dog service using purebred "true" with breedId1 without breedId2 for and valid dog data
  
 Given service method is post
 When the service url is: Login_service
@@ -271,8 +274,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-008: Add User Dog service by pass purebred "true" with breedId1 and breedId2 for valid dog data parameters
-   
+Scenario: Positive TC-008: Verify Add User Dog service using purebred "true" with breedId1 and breedId2 for and valid dog data   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -312,8 +314,7 @@ Then the service response should be: 409
 
 
 
-Scenario: Positive TC-009: Add User Dog service by pass purebred "false" without breedId1 and breedId2 for valid dog data parameters
-    
+Scenario: Positive TC-009: Verify Add User Dog service using purebred "false" without breedId1 and breedId2 for and valid dog data    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -351,7 +352,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-010: Add User Dog service by pass purebred "false" without breedId1 with breedId2 for valid dog data parameters
+Scenario: Positive TC-010: Verify Add User Dog service using purebred "false" without breedId1 with breedId2 for and valid dog data
  
 Given service method is post
 When the service url is: Login_service
@@ -390,8 +391,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-011: Add User Dog service by pass purebred "false" with breedId1 without breedId2 for valid dog data parameters
- 
+Scenario:Positive TC-011: Verify Add User Dog service using purebred "false" with breedId1 without breedId2 for and valid dog data 
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -429,7 +429,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-012: Add User Dog service by pass purebred "false" with breedId1 and breedId2 for valid dog data parameters
+Scenario: Positive TC-012: Verify Add User Dog service using purebred "false" with breedId1 and breedId2 for and valid dog data
    
 Given service method is post
 When the service url is: Login_service
@@ -468,8 +468,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-013: Add User Dog service by pass "akcRegistrationNo" with char for valid dog data parameters
-    
+Scenario: Positive TC-013: Verify Add User Dog service using  "akcRegistrationNo" with char for and valid dog data    
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -508,7 +507,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: Positive TC-014: Add User Dog service by pass 25 for breed_id1_percentage  parameter
+Scenario: Positive TC-014:Verify Add User Dog service using 25 for breed_id1_percentage 
   
 Given service method is post
 When the service url is: Login_service
@@ -546,8 +545,7 @@ And we set Body with {
 } 
 Then the service response should be: 201
 
-Scenario: Positive TC-015: Add User Dog service by pass 50 for breed_id1_percentage parameters
-  
+Scenario: Positive TC-015: Verify Add User Dog service using 50 for breed_id1_percentage   
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -585,7 +583,7 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-016: Add User Dog service by pass 75 for breed_id1_percentage parameters
+Scenario:Positive TC-016: Verify Add User Dog service using 75 for breed_id1_percentage 
     
 Given service method is post
 When the service url is: Login_service
@@ -625,7 +623,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: Positive TC-017: Add User Dog service by pass 0 for Age parameters
+Scenario: Positive TC-017: Verify Add User Dog service using 0 for Age
   
 Given service method is post
 When the service url is: Login_service
@@ -664,7 +662,8 @@ And we set Body with {
     
 Then the service response should be: 201
 
-Scenario: Positive TC-018: Add User Dog service by pass 50 for Age parameters
+Scenario: Positive TC-018: Verify Add User Dog service using 50 for Age
+
  
 Given service method is post
 When the service url is: Login_service
@@ -704,7 +703,7 @@ And we set Body with {
 Then the service response should be: 201
 
 
-Scenario: Positive TC-019: Add User Dog service by pass 25 for Age parameters
+Scenario: Positive TC-019: Verify Add User Dog service using 25 for Age
    
 Given service method is post
 When the service url is: Login_service

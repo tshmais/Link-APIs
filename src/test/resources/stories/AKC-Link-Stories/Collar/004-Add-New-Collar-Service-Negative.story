@@ -1,9 +1,12 @@
+Meta:
+@ReportName Negative
+@Collar
 Narrative:
 In order to test New_Collar service
 As a tester
 I want to make sure all return the code 4xx
     
-Scenario: Negative TC-001: Add Collar service by pass empty data for imei parameter
+Scenario: Negative TC-001: Verify  Add Collar service using empty data  for imei
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -27,7 +30,7 @@ And we set Body with {
 
 Then the service response should be: 409
 
-Scenario: Negative TC-002: Add Collar service by pass empty data for hardwareVersion parameter
+Scenario: Negative TC-002: Verify  Add Collar service using empty data  for hardwareVersion
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -52,7 +55,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-003: Add Collar service by pass empty data for firmwareVersion parameter
+Scenario: Negative TC-003: Verify  Add Collar service using empty data  for firmwareVersion
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -78,7 +81,7 @@ Then the service response should be: 409
 
 
 
-Scenario: Negative TC-004: Add Collar service by pass invalid data for imei parameter
+Scenario: Negative TC-004: Verify  Add Collar service using invalid data  for imei
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -103,7 +106,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-005: Add Collar service by pass invalid data for hardwareVersion parameter
+Scenario: Negative TC-005: Verify  Add Collar service using invalid data  for hardwareVersion
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -128,7 +131,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-006: Add Collar service by pass invalid data for firmwareVersion parameter
+Scenario: Negative TC-006: Verify  Add Collar service using invalid data  for firmwareVersion
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -152,7 +155,7 @@ And we set Body with {
 
 Then the service response should be: 409
                                     
-Scenario: Negative TC-008: Add Collar service by pass data for Non consistent token with the id parameter
+Scenario: Negative TC-008: Verify  Add Collar service using data  for Non consistent token with the id
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -177,7 +180,7 @@ And we set Body with {
 
 Then the service response should be: 401
 
-Scenario: Negative TC-009: Add Collar service by pass data empty for all parameters
+Scenario: Negative TC-009: Verify  Add Collar service using empty data  for All parametes
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json

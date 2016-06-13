@@ -1,10 +1,14 @@
+Meta:
+@ReportName Negative
+@User
+
 Narrative:
 In order to test Get User Service
 As a tester
 I want to make sure all return the code 4xx
 
 
-Scenario: Negative TC-005: Get User data service by pass invalid data for 0 parameter
+Scenario: Negative TC-002: Verify Get User data service using invalid data for user ID not exist "0"
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -25,7 +29,7 @@ Then the service response should be: 404
 And json path $.errorDesc should equal:No Account exist for user 0.
 add new lines
 
-Scenario: Negative TC-006: Get User data service by pass invalid data for not exest parameter
+Scenario: Negative TC-003: Verify Get User data service using invalid data for user ID not exist "109876"
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
@@ -47,7 +51,7 @@ And json path $.errorDesc should equal:No Account exist for user 109876.
 add new lines
 
 
-Scenario: Negative TC-007: Get User data service by pass invalid data for * parameter
+Scenario: Negative TC-004: Verify Get User data service using invalid data for user ID "*"
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
