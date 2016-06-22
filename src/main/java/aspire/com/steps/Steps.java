@@ -18,6 +18,8 @@ import org.jbehave.core.annotations.When;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import com.aspire.automationReport.ASReport;
 import com.google.gson.Gson;
@@ -33,6 +35,9 @@ import jo.aspire.generic.EnvirommentManager;
 import jo.aspire.generic.Parsers;
 
 public class Steps {
+	private static final JSONObject actualJSON = null;
+	private static final JSONCompareMode strictMode = null;
+	private static final String expectedJSON = null;
 	private static String JsonResponse = null;
 	HttpRequestHandler reqHandler = HttpRequestHandler.getInstance();
 	Parsers parsers = new Parsers();
@@ -238,8 +243,21 @@ public class Steps {
 	}
 
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
-	public void test(String NodeName, int ArrayOrder, String expected) {
+	public void test(String NodeName, int ArrayOrder, String expected) throws JSONException {
 		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
 		Assert.assertEquals(result.isJsonNull() ? "null" : result.getAsString().trim(), expected);
+		
+		
+		JSONAssert.assertEquals(expectedJSON, actualJSON, false);
+	}
+
+	@Then("json response should equal:$expected")
+public void setJsonBody1(String expected) {
+	 
+	  String result = JsonPath.parse(StringjsonResponse).read(JsonResponse, null, null);
+	  Assert.assertEquals(result,expected);
+			  
 	}
 }
+
+

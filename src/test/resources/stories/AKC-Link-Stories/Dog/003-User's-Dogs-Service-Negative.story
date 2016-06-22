@@ -8,6 +8,7 @@ As a tester
 I want to make sure all return the code 4xx for POST scenarios and 2xx for optinal parameter
 
 Scenario: Negative TC-001: Verify  Add User Dog service using empty data  for name
+GivenStories: /User/002-Login-Service-Positive.story
 Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
