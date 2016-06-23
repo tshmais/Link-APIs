@@ -80,6 +80,26 @@ public class Steps {
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 	}
+	
+	@When("the service url equal: $url with $param")
+	@Then("the service url equal: $url with $param")
+	public void setServicesURLwithParametr(String url, String param) throws URISyntaxException {
+		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+			URL = url;
+		} else if (url.startsWith("%s")) {
+			URL = String.format(url, EnvirommentManager.getInstance()
+					.getProperty("ROOT_URL"));
+		} else {
+			URL = String.format(
+					EnvirommentManager.getInstance().getProperty(url),
+					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
+		}
+		URL = URL.replaceFirst("\\[parameter\\]", param);
+		
+		reqHandler.setRequestUrl(URL);
+
+		ASReport.getInstance().append(URL);
+	}
 
 	@Given("service method is $method")
 	@When("service method is $method")
@@ -253,11 +273,60 @@ public class Steps {
 
 	@Then("json response should equal:$expected")
 public void setJsonBody1(String expected) {
+		
+		
 	 
-	  String result = JsonPath.parse(StringjsonResponse).read(JsonResponse, null, null);
-	  Assert.assertEquals(result,expected);
-			  
-	}
+		try {
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.print(jsonResponse);
+			
+		
+
+	//		StringjsonResponse = jsonResponse.toString();
+		
+			Assert.assertEquals(formatString(jsonResponse),expected);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 }
+	public static String formatString(JsonElement jsonResponse2){
+
+	    StringBuilder jsonres = new StringBuilder();
+	    String indentString = "";
+
+	    for (int i = 0; i < ((CharSequence) jsonResponse2).length(); i++) {
+	        char letter = ((CharSequence) jsonResponse2).charAt(i);
+	        switch (letter) {
+	        case '{':
+	        case '[':
+	        	jsonres.append("\n" + indentString + letter + "\n");
+	            indentString = indentString + "\t";
+	            jsonres.append(indentString);
+	            break;
+	        case '}':
+	        case ']':
+	            indentString = indentString.replaceFirst("\t", "");
+	            jsonres.append("\n" + indentString + letter);
+	            break;
+	        case ',':
+	        	jsonres.append(letter + "\n" + indentString);
+	            break;
+
+	        default:
+	        	jsonres.append(letter);
+	            break;
+	        }
+	    }
+
+	    return jsonres.toString();
+	}
+	 
+	 
+	}
+
 
 

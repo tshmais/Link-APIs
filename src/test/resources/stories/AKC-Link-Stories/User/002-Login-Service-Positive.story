@@ -18,6 +18,7 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 200
+And Retrieve json path $.access_token response
 
 
 Scenario: Positive TC-002: Verify Login service using valid data for old LINK user
@@ -31,5 +32,6 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 200
+And Retrieve json path $.access_token response
 
 
