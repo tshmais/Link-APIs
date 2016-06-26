@@ -273,11 +273,12 @@ public void checkResponse(String expected) {
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
 			
-		
+			JsonElement element = gson.fromJson(jsonResponse, JsonElement.class);
+			  JsonObject jsonObj = element.getAsJsonObject();
 
-			StringjsonResponse = jsonResponse.toString();
+			StringjsonResponse = jsonObj.toString();
 		
-			JSONAssert.assertEquals(StringjsonResponse, expected, false);
+			JSONAssert.assertEquals(StringjsonResponse.trim(), expected, false);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
