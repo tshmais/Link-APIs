@@ -254,14 +254,6 @@ public class Steps {
 //
 //	}
 
-	@Then("json path $expression should equal:$expected")
-	@When("json path $expression should equal:$expected")
-	public void getItem(String expression, String expected)
-			throws JSONException {
-		// JsonReader.GenerateJson("sql_get_all_users");
-
-	}
-
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	public void test(String NodeName, int ArrayOrder, String expected) throws JSONException {
 		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
@@ -272,7 +264,7 @@ public class Steps {
 	}
 
 	@Then("json response should equal:$expected")
-public void setJsonBody1(String expected) {
+public void checkResponse(String expected) {
 		
 		
 	 
@@ -283,9 +275,9 @@ public void setJsonBody1(String expected) {
 			
 		
 
-	//		StringjsonResponse = jsonResponse.toString();
+			StringjsonResponse = jsonResponse.toString();
 		
-			Assert.assertEquals(formatString(jsonResponse),expected);
+			JSONAssert.assertEquals(StringjsonResponse, expected, false);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -293,38 +285,7 @@ public void setJsonBody1(String expected) {
 		
 		
 }
-	public static String formatString(JsonElement jsonResponse2){
-
-	    StringBuilder jsonres = new StringBuilder();
-	    String indentString = "";
-
-	    for (int i = 0; i < ((CharSequence) jsonResponse2).length(); i++) {
-	        char letter = ((CharSequence) jsonResponse2).charAt(i);
-	        switch (letter) {
-	        case '{':
-	        case '[':
-	        	jsonres.append("\n" + indentString + letter + "\n");
-	            indentString = indentString + "\t";
-	            jsonres.append(indentString);
-	            break;
-	        case '}':
-	        case ']':
-	            indentString = indentString.replaceFirst("\t", "");
-	            jsonres.append("\n" + indentString + letter);
-	            break;
-	        case ',':
-	        	jsonres.append(letter + "\n" + indentString);
-	            break;
-
-	        default:
-	        	jsonres.append(letter);
-	            break;
-	        }
-	    }
-
-	    return jsonres.toString();
-	}
-	 
+	
 	 
 	}
 
