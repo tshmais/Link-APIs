@@ -12,14 +12,14 @@ When the service url is: Login_service
 And add to the header Content-Type with value application/json
 And we set Body with {
     "loginProvider" : "LINK",
-    "loginProviderId" : "qa272@gmail.com",
+    "loginProviderId" : "qa879@gmail.com",
     "password" : "P@ssw0rd",
     "loginProviderToken" : ""
 }
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Add_New_Collar_service with 355
+And the service url changes to: Add_New_Collar_service with 189
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {

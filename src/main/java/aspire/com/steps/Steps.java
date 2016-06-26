@@ -35,9 +35,6 @@ import jo.aspire.generic.EnvirommentManager;
 import jo.aspire.generic.Parsers;
 
 public class Steps {
-	private static final JSONObject actualJSON = null;
-	private static final JSONCompareMode strictMode = null;
-	private static final String expectedJSON = null;
 	private static String JsonResponse = null;
 	HttpRequestHandler reqHandler = HttpRequestHandler.getInstance();
 	Parsers parsers = new Parsers();
@@ -258,33 +255,14 @@ public class Steps {
 	public void test(String NodeName, int ArrayOrder, String expected) throws JSONException {
 		JsonElement result = jsonResponse.getAsJsonArray().get(ArrayOrder).getAsJsonObject().get(NodeName);
 		Assert.assertEquals(result.isJsonNull() ? "null" : result.getAsString().trim(), expected);
-		
-		
-		JSONAssert.assertEquals(expectedJSON, actualJSON, false);
 	}
 
 	@Then("json response should equal:$expected")
-public void checkResponse(String expected) {
+public void setJsonBody1(String expected) throws JSONException {
 		
-		
-	 
-		try {
-			CloseableHttpResponse resp = reqHandler.execute(myResponse);
-			jsonResponse = parsers.asJson(resp);
-			System.out.print(jsonResponse);
-			
-			JsonElement element = gson.fromJson(jsonResponse, JsonElement.class);
-			  JsonObject jsonObj = element.getAsJsonObject();
+		String expec = EnvirommentManager.getInstance().getProperty(expected);
+		JSONAssert.assertEquals(StringjsonResponse, expec, false);
 
-			StringjsonResponse = jsonObj.toString();
-		
-			JSONAssert.assertEquals(StringjsonResponse.trim(), expected, false);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
 }
 	
 	 
