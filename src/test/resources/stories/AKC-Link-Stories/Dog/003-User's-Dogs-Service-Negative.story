@@ -80,7 +80,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:Negative_TC-002_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-003: Verify  Add User Dog service using empty data  for gender
@@ -119,7 +119,7 @@ And we set Body with {
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-003_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-003_Post_Dog_to_User_service
 
 
 Scenario:Negative TC-004: Verify  Add User Dog service using empty data  for neutered
@@ -157,7 +157,7 @@ And we set Body with {
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-004_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-004_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-005: Verify Add User Dog service using empty data  for age
@@ -270,7 +270,7 @@ And we set Body with {
 }
     
 Then the service response should be: 201
-And json response should equal:Negative_TC-007_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-007_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-008: Verify  Add User Dog service using empty data with purebred "false" for breedId1 , breedId2
@@ -307,7 +307,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:Negative_TC-008_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-008_Post_Dog_to_User_service
 
 Scenario: Negative TC-009:Verify Add User Dog service using empty data with purebred "false" and pass data for breedId1 and 2 for breed_id1_percentage
 Given service method is post
@@ -382,7 +382,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
     
-Then the service response should be: 201
+Then the service response should be: 409
 And json response should equal:Negative_TC-0010_Post_Dog_to_User_service
 
 
@@ -420,7 +420,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
     
-Then the service response should be: 400
+Then the service response should be: 409
 And json response should equal:Negative_TC-0011_Post_Dog_to_User_service
 
 
@@ -460,7 +460,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
     
-Then the service response should be: 201
+Then the service response should be: 409
 And json response should equal:Negative_TC-0012_Post_Dog_to_User_service
 
 
@@ -498,7 +498,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
     
-Then the service response should be: 201
+Then the service response should be: 409
 And json response should equal:Negative_TC-0013_Post_Dog_to_User_service
 
 
@@ -536,7 +536,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0014_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0014_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-015: Verify Add User Dog service using empty data for akcRegistrationNo
@@ -573,7 +573,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
     
-Then the service response should be: 409
+Then the service response should be: 201
 And json response should equal:Negative_TC-0015_Post_Dog_to_User_service
 
 
@@ -610,7 +610,7 @@ And we set Body with {
   "weightClass": "ee",
   "akcRegistrationNo": ""
 }  
-Then the service response should be: 409
+Then the service response should be: 201
 And json response should equal:Negative_TC-0016_Post_Dog_to_User_service
 
 
@@ -648,7 +648,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }    
 Then the service response should be: 201
-And json response should equal:Negative_TC-0017_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0017_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-018: Verify  Add User Dog service using invalid data  for gender
@@ -670,13 +670,13 @@ And add Session Authorization to Request header
 And we set Body with {
   "name": "ID",
   "photo": "",
-  "gender": "#",
+  "gender": ")",
   "neutered": "false",
   "age": "5",
   "purebred": "false",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "1",
+  "breed_id1_percentage": "25",
   "description": "q",
   "dateOfBirth": "03-07-2013",
   "weight": "5",
@@ -940,7 +940,7 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:Negative_TC-0025_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0025_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-026: Verify  Add User Dog service using invalid data  for dateOfBirth
@@ -1159,7 +1159,7 @@ And we set Body with {
   "weightClass": "",
   "akcRegistrationNo": ""
 }
-Then the service response should be: 400
+Then the service response should be: 409
 And json response should equal:Negative_TC-0031_Post_Dog_to_User_service
 
 
