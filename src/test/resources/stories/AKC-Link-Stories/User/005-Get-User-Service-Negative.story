@@ -26,8 +26,12 @@ And the service url changes to: Get_User_service with 0
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 404
-And json path $.errorDesc should equal:No Account exist for user 0.
-add new lines
+And json response should equal:
+{
+  "error": true,
+  "errorCode": 0,
+  "errorDesc": "No Account exist for user 0."
+}
 
 Scenario: Negative TC-003: Verify Get User data service using invalid data for user ID not exist "109876"
 Given service method is post
@@ -47,9 +51,12 @@ And the service url changes to: Get_User_service with 109876
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 404
-And json path $.errorDesc should equal:No Account exist for user 109876.
-add new lines
-
+And json response should equal:
+{
+  "error": true,
+  "errorCode": 0,
+  "errorDesc": "No Account exist for user 109876."
+}
 
 Scenario: Negative TC-004: Verify Get User data service using invalid data for user ID "*"
 Given service method is post
@@ -69,5 +76,3 @@ And the service url changes to: Get_User_service with *
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 400
-
-add new lines

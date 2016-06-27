@@ -12,26 +12,14 @@ Given service method is post
 When the service url is: Login_service
 And add to the header Content-Type with value application/json
 And we set Body with {
-    "loginProvider": "LINK", 
-    "loginProviderId": "qa649@gmail.com",
-    "password": "P@ssw0rd",
-    "loginProviderToken":""
+    "loginProvider" : "LINK",
+    "loginProviderId" : "Auto1@gmail.com",
+    "password" : "P@ssw0rd",
+    "loginProviderToken" : ""
 }
 Then the service response should be: 200
 And Retrieve json path $.access_token response
 
 
-Scenario: Positive TC-002: Verify Login service using valid data for old LINK user
-Given service method is post
-When the service url is: Login_service
-And add to the header Content-Type with value application/json
-And we set Body with {
-    "loginProvider": "LINK", 
-    "loginProviderId": "qa649@gmail.com",
-    "password": "P@ssw0rd",
-    "loginProviderToken":""
-}
-Then the service response should be: 200
-And Retrieve json path $.access_token response
 
 
