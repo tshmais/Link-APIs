@@ -42,25 +42,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 75,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-001_Post_Dog_to_User_service
+
 
 Scenario:Positive TC-002: Verify  Add User Dog service using valid same user data  for and valid same dog data
 Given service method is post
@@ -96,25 +79,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 75,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-002_Post_Dog_to_User_service
+
 
 Scenario:Positive TC-003: Verify Add User Dog service using neutered "true" for and valid dog data 
 Given service method is post
@@ -150,25 +116,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }  
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 76,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": true,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-003_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-004: Verify Add User Dog service using neutered "false" for and valid dog data 
 Given service method is post
@@ -204,25 +153,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }  
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 77,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-004_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-005: Verify  Add User Dog service using  purebred "true" without breedId1 and breedId2 for and valid dog data
 Given service method is post
@@ -258,24 +190,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }  
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 78,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": true,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-005_Post_Dog_to_User_service
+
 
 
 Scenario: Positive TC-006: Verify  Add User Dog service using purebred "true" without breedId1 with breedId2 for and valid dog data
@@ -312,12 +228,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Purebred dogs can have only one breedId."
-}
+|--And json response should equal:Positive_TC-006_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-007: Verify Add User Dog service using purebred "true" with breedId1 without breedId2 for and valid dog data
 Given service method is post
@@ -353,25 +265,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 } 
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 79,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": true,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-007_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-008: Verify Add User Dog service using purebred "true" with breedId1 and breedId2 for and valid dog data   
 Given service method is post
@@ -406,26 +301,9 @@ And we set Body with {
   "weightClass": "ee",
   "akcRegistrationNo": ""
 }
-Then the service response should be: 409
-And json response should equal:
-{
-  "id": 80,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": true,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+Then the service response should be: 201
+|--And json response should equal:Positive_TC-008_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-009: Verify Add User Dog service using purebred "false" without breedId1 and breedId2 for and valid dog data    
 Given service method is post
@@ -461,24 +339,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 } 
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 81,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-009_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-010: Verify Add User Dog service using purebred "false" without breedId1 with breedId2 for and valid dog data
 Given service method is post
@@ -514,25 +376,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 82,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId2": 2,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0010_Post_Dog_to_User_service
+
 
 Scenario:Positive TC-011: Verify Add User Dog service using purebred "false" with breedId1 without breedId2 for and valid dog data 
 Given service method is post
@@ -568,25 +413,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 83,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0011_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-012: Verify Add User Dog service using purebred "false" with breedId1 and breedId2 for and valid dog data   
 Given service method is post
@@ -622,26 +450,8 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 84,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0012_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-013: Verify Add User Dog service using  "akcRegistrationNo" with char for and valid dog data    
 Given service method is post
@@ -677,26 +487,8 @@ And we set Body with {
   "akcRegistrationNo": "abc12345"
 }    
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 85,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "abc12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0013_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-014:Verify Add User Dog service using 25 for breed_id1_percentage 
 Given service method is post
@@ -732,27 +524,8 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 } 
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 86,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 25,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0014_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-015: Verify Add User Dog service using 50 for breed_id1_percentage   
 Given service method is post
@@ -788,27 +561,8 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 87,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 50,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0015_Post_Dog_to_User_service
+
 
 Scenario:Positive TC-016: Verify Add User Dog service using 75 for breed_id1_percentage     
 Given service method is post
@@ -844,27 +598,8 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 }   
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 89,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 2,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 75,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0016_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-017: Verify Add User Dog service using 1 for Age
 Given service method is post
@@ -900,27 +635,8 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 } 
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 90,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 1,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 75,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0017_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-018: Verify Add User Dog service using 50 for Age
 Given service method is post
@@ -956,27 +672,8 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 }    
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 91,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 50,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 75,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0018_Post_Dog_to_User_service
+
 
 Scenario: Positive TC-019: Verify Add User Dog service using 25 for Age  
 Given service method is post
@@ -1012,24 +709,4 @@ And we set Body with {
   "akcRegistrationNo": "12345"
 }
 Then the service response should be: 201
-And json response should equal:
-{
-  "id": 92,
-  "version": 0,
-  "name": "ABC",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": false,
-  "description": "$",
-  "age": 25,
-  "purebred": false,
-  "breedId1": 1,
-  "breedId2": 2,
-  "breed_id1_percentage": 75,
-  "dateOfBirth": "03-07-2013",
-  "weight": 8.9,
-  "weightClass": "ee",
-  "eyeColor": "BROWN",
-  "akcRegistrationNo": "12345",
-  "accountId": 191
-}
+|--And json response should equal:Positive_TC-0019_Post_Dog_to_User_service
