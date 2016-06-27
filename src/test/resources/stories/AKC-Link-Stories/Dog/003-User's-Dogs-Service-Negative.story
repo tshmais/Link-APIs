@@ -1,6 +1,8 @@
 Meta:
-@ReportName Negative
+@ReportName Positive
 @Dog
+@Link
+@NegativeDog
 
 Narrative:
 In order to test User's_Dogs service

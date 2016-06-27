@@ -1,6 +1,10 @@
 Meta:
+@NegativeUser
 @ReportName Negative
+@Link
 @User
+
+
 Narrative:
 In order to test New_Collar service
 As a tester

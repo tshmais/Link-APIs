@@ -1,6 +1,8 @@
 Meta:
-@ReportName Negative
+@ReportName Positive
 @Collar
+@Link
+@NegativeCollar
 Narrative:
 In order to test New_Collar service
 As a tester

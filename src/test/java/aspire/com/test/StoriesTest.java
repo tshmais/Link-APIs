@@ -10,8 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import jo.aspire.generic.EnvirommentManager;
 import jo.aspire.web.automationUtil.PlatformInformation;
+
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.embedder.MetaFilter;
@@ -20,6 +22,7 @@ import org.jbehave.core.embedder.StoryManager;
 import org.jbehave.core.failures.FailingUponPendingStep;
 import org.jbehave.core.failures.PendingStepStrategy;
 import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.RelativePathCalculator;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.model.Meta;
@@ -38,6 +41,7 @@ import org.jbehave.web.selenium.SeleniumContext;
 import org.jbehave.web.selenium.SeleniumContextOutput;
 import org.jbehave.web.selenium.SeleniumStepMonitor;
 import org.springframework.context.ApplicationContext;
+
 import com.aspire.automationReport.AspireReport;
 
 /**
@@ -71,6 +75,9 @@ public class StoriesTest extends JUnitStories {
 				.useStoryControls(new StoryControls().doResetStateBeforeScenario(true)).useStepMonitor(stepMonitor)
 				.useStoryLoader(new LoadFromClasspath(StoriesTest.class)).useStoryReporterBuilder(reporterBuilder);
 	}
+	
+	
+      
 
 	@Override
 	public InjectableStepsFactory stepsFactory() {
@@ -81,7 +88,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/" + System.getProperty("storyFilter", "Update-Base-Station-Service-Positive") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "007-Base-Registration-Status-Service-Positive") + ".story"),
 				null);
 
 	}
@@ -123,11 +130,11 @@ public class StoriesTest extends JUnitStories {
 		if (rerunFailed) {
 			rerunCount = Integer.parseInt(EnvirommentManager.getInstance().getProperty("rerunCount"));
 		}
-		String buildName = System.getProperty("buildName");
+		 String buildName = System.getProperty("BUILD_NUMBER");
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("EEE, d MMM yyyy - hh,,mm,,ss");
 		if (buildName == null) {
-			buildName = "XYZ";
+			buildName = "BuildNumber";
 		}
 
 		String dateAndTime = ft.format(date);
@@ -140,9 +147,9 @@ public class StoriesTest extends JUnitStories {
 		String OS = System.getProperty("os.name").toLowerCase();
 		System.out.println("Opertation system version: " + OS);
 
-		AspireReport.getInstance().getReportDataManager().setReportTitle("API");
-		AspireReport.getInstance().getReportDataManager().setReportSubTitle("testing report");
-		AspireReport.getInstance().getReportDataManager().setTitle("Aspire");
+		 AspireReport.getInstance().getReportDataManager().setReportTitle("Link APIs");
+		  AspireReport.getInstance().getReportDataManager().setReportSubTitle("Testing Report");
+		  AspireReport.getInstance().getReportDataManager().setTitle("");
 
 //		if (System.getProperty("RunBrowsers") != null && System.getProperty("RunBrowsers") != "") {
 //			browsers = System.getProperty("RunBrowsers").split(",");
@@ -235,6 +242,9 @@ public class StoriesTest extends JUnitStories {
 		}
 
 	}
+	
+	
+
 
 	public static void skipScenariosList(Embedder embedder) {
 		if (!rerunFailedFlag) {

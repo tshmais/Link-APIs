@@ -1,3 +1,9 @@
+Meta:
+@ReportName Negative
+@Link
+@BaseStation
+@PositiveBaseStation
+@NegativeBaseStation
 
 Narrative:
 In order to test Base Registration Status service
@@ -17,7 +23,7 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Base_Registration_Status_service
+And the service url is: Base_Registration_Status_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -26,7 +32,8 @@ And we set Body with {
         ]
 }
 Then the service response should be: 200
-And 
+And json response should equal:Positive_TC-100_Base_Registration_Status_service
+
 
 Scenario: Positive TC-101: Verify Base Registration Status service using valid data for unassociated user with one registered baseMacAddresses
 Given service method is post
@@ -41,7 +48,7 @@ And we set Body with {
 And the service response should be: 200
 And Retrieve json path $.access_token response
 And service method is post
-And the service url changes to: Base_Registration_Status_service
+And the service url is: Base_Registration_Status_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -50,3 +57,4 @@ And we set Body with {
         ]
 }
 Then the service response should be: 200
+And json response should equal:Positive_TC-101_Base_Registration_Status_service

@@ -1,7 +1,9 @@
-
 Meta:
 @ReportName Positive
+@Link
 @User
+@PositiveUser
+
 Narrative:
 In order to test Login service
 As a tester
@@ -18,8 +20,18 @@ And we set Body with {
     "loginProviderToken" : ""
 }
 Then the service response should be: 200
-And Retrieve json path $.access_token response
 
 
 
 
+Scenario: Positive TC-002: Verify Login service using valid data for old LINK user
+Given service method is post
+When the service url is: Login_service
+And add to the header Content-Type with value application/json
+And we set Body with {
+    "loginProvider" : "LINK",
+    "loginProviderId" : "14user@linkakc.com",
+    "password" : "P@ssw0rd",
+    "token" : ""
+}
+Then the service response should be: 200

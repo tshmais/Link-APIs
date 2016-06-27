@@ -1,6 +1,9 @@
 Meta:
 @ReportName Positive
+@Link
 @User
+@PositiveUser
+
 Narrative:
 In order to test Create_User service
 As a tester

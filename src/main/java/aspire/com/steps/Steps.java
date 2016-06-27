@@ -239,17 +239,17 @@ public class Steps {
 		reqHandler.setRequestHeader(name, response);
 	}
 
-//	@Given("url contains the parameter: $value")
-//	@When("url contains the parameter: $value")
-//	@Then("url contains the parameter: $value")
-//	public void addUrlParameters(String value) throws URISyntaxException {
-//		URL = URL.replaceFirst("\\[parameter]\\", value);
-//		reqHandler.setRequestUrl(URL);
-//		System.err.println("New URL with Parameter is : " + URL);
-//
-//		
-//
-//	}
+	@Given("url contains the parameter: $value")
+	@When("url contains the parameter: $value")
+@Then("url contains the parameter: $value")
+	public void addUrlParameters(String value) throws URISyntaxException {
+		URL = URL.replaceFirst("\\[parameter]\\", value);
+		reqHandler.setRequestUrl(URL);
+		System.err.println("New URL with Parameter is : " + URL);
+
+	
+
+	}
 
 	@Then("json node is $NodeName for $ArrayOrder order should equal:$expected")
 	public void test(String NodeName, int ArrayOrder, String expected) throws JSONException {

@@ -1,5 +1,7 @@
 Meta:
+@NegativeUser
 @ReportName Negative
+@Link
 @User
 
 Narrative:
@@ -18,12 +20,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad Request."
-}
+And json response should equal:Negative_TC-001_Login_service
+
 
 Scenario: Negative TC-002: Verify Login service using empty data  for loginProviderId
 Given service method is post
@@ -36,12 +34,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "loginProviderId cannot be empty or null."
-}
+And json response should equal:Negative_TC-002_Login_service
+
 
 Scenario: Negative TC-003: Verify Login service using empty data  for password
 Given service method is post
@@ -54,12 +48,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad Credentials"
-}
+And json response should equal:Negative_TC-003_Login_service
+
 
 Scenario: Negative TC-005: Verify Login service using invalid data for loginProvider
 Given service method is post
@@ -72,12 +62,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad Request."
-}
+And json response should equal:Negative_TC-005_Login_service
+
 
 Scenario: Negative TC-006: Verify Login service using invalid data for loginProviderId
 Given service method is post
@@ -90,12 +76,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad credentials."
-}
+And json response should equal:Negative_TC-006_Login_service
+
 
 Scenario: Negative TC-007: Verify Login service using invalid data for password
 Given service method is post
@@ -108,12 +90,7 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad Credentials"
-}
+And json response should equal:Negative_TC-007_Login_service
 
 Scenario: Negative TC-009: Verify Login service using user data for user not exist
 Given service method is post
@@ -126,12 +103,8 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad credentials."
-}
+And json response should equal:Negative_TC-009_Login_service
+
 
 Scenario: Negative TC-010: Verify Login service using empty data for All paramters
 Given service method is post
@@ -144,9 +117,4 @@ And we set Body with {
     "loginProviderToken":""
 }
 Then the service response should be: 409
-And json response should equal:
-{
-  "error": true,
-  "errorCode": 0,
-  "errorDesc": "Bad Request."
-}
+And json response should equal:Negative_TC-010_Login_service
