@@ -50,53 +50,52 @@ public class Steps {
 	Gson gson = new Gson();
 
 	private String getRootUrl() {
-		Map<String, String> env = System.getenv();
-		String root_url = env.get("ROOT_URL");
-		if (root_url == null) {
-			root_url = EnvirommentManager.getInstance().getProperty("ROOT_URL");
-		}
-		System.out.println("ROOT_URL: " + root_url);
-		return root_url;
-	}
+		  
+		 String root_url = System.getProperty("ROOT_URL");
+		  if (root_url == null) {
+		   root_url = EnvirommentManager.getInstance().getProperty("ROOT_URL");
+		  }
+		  System.out.println("ROOT_URL: " + root_url);
+		  return root_url;
+		 }
 
-	@When("the service url is: $url")
-	@Given("the service url is: $url")
-	public void setServiceURL(String url) throws URISyntaxException {
+		 @When("the service url is: $url")
+		 @Given("the service url is: $url")
+		 public void setServiceURL(String url) throws URISyntaxException {
 
-		if (url.toLowerCase().startsWith("http://www")
-				|| url.toLowerCase().startsWith("https://www")) {
-			URL = url;
-		} else if (url.startsWith("%s")) {
-			URL = String.format(url, getRootUrl());
-		} else {
-			URL = String.format(
-					EnvirommentManager.getInstance().getProperty(url),
-					getRootUrl());
-		}
+		  if (url.toLowerCase().startsWith("http://www")
+		    || url.toLowerCase().startsWith("https://www")) {
+		   URL = url;
+		  } else if (url.startsWith("%s")) {
+		   URL = String.format(url, getRootUrl());
+		  } else {
+		   URL = String.format(
+		     EnvirommentManager.getInstance().getProperty(url),
+		     getRootUrl());
+		  }
 
-		reqHandler.setRequestUrl(URL);
-		ASReport.getInstance().append(URL);
-	}
-	
-	@When("the service url equal: $url with $param")
-	@Then("the service url equal: $url with $param")
-	public void setServicesURLwithParametr(String url, String param) throws URISyntaxException {
-		if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
-			URL = url;
-		} else if (url.startsWith("%s")) {
-			URL = String.format(url, EnvirommentManager.getInstance()
-					.getProperty("ROOT_URL"));
-		} else {
-			URL = String.format(
-					EnvirommentManager.getInstance().getProperty(url),
-					EnvirommentManager.getInstance().getProperty("ROOT_URL"));
-		}
-		URL = URL.replaceFirst("\\[parameter\\]", param);
-		
-		reqHandler.setRequestUrl(URL);
+		  reqHandler.setRequestUrl(URL);
+		  ASReport.getInstance().append(URL);
+		 }
+		 
+		 @When("the service url equal: $url with $param")
+		 @Then("the service url equal: $url with $param")
+		 public void setServicesURLwithParametr(String url, String param) throws URISyntaxException {
+		  if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+		   URL = url;
+		  } else if (url.startsWith("%s")) {
+		   URL = String.format(url, getRootUrl());
+		  } else {
+		   URL = String.format(
+		     EnvirommentManager.getInstance().getProperty(url),
+		     getRootUrl());
+		  }
+		  URL = URL.replaceFirst("\\[parameter\\]", param);
+		  
+		  reqHandler.setRequestUrl(URL);
 
-		ASReport.getInstance().append(URL);
-	}
+		  ASReport.getInstance().append(URL);
+		 }
 
 	@Given("service method is $method")
 	@When("service method is $method")

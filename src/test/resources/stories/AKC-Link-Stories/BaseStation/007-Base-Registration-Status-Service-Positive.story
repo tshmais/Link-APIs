@@ -1,9 +1,9 @@
 Meta:
-@ReportName Negative
-@Link
 @BaseStation
-@PositiveBaseStation
-@NegativeBaseStation
+@BaseStation_Status_Positive_scenarios
+@BaseStation_Positive
+@ReportName BaseStation_Positive
+@Link
 
 Narrative:
 In order to test Base Registration Status service

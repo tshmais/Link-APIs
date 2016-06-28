@@ -1,8 +1,13 @@
 Meta:
-@ReportName Positive
+@ReportName Add_Collar_Positive_scenarios
+@Collar_Positive
+@ReportName Collar_Positive
 @Collar
 @Link
-@PositiveCollar
+
+
+
+
 
 Narrative:
 In order to test New_Collar service

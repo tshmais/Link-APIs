@@ -1,8 +1,9 @@
 Meta:
-@NegativeUser
-@ReportName Negative
-@Link
 @User
+@Login_User_Negative_scenarios
+@User_Negative
+@ReportName User_Negative
+@Link
 
 Narrative:
 In order to test Login service

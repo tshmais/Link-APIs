@@ -76,7 +76,6 @@ public class StoriesTest extends JUnitStories {
 				.useStoryLoader(new LoadFromClasspath(StoriesTest.class)).useStoryReporterBuilder(reporterBuilder);
 	}
 	
-	
       
 
 	@Override
@@ -88,7 +87,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/" + System.getProperty("storyFilter", "007-Base-Registration-Status-Service-Positive") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "*") + ".story"),
 				null);
 
 	}
@@ -130,7 +129,7 @@ public class StoriesTest extends JUnitStories {
 		if (rerunFailed) {
 			rerunCount = Integer.parseInt(EnvirommentManager.getInstance().getProperty("rerunCount"));
 		}
-		 String buildName = System.getProperty("BUILD_NUMBER");
+		 String buildName = System.getProperty("buildName");
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("EEE, d MMM yyyy - hh,,mm,,ss");
 		if (buildName == null) {

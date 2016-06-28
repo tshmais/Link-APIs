@@ -1,9 +1,9 @@
 Meta:
-@NegativeUser
-@ReportName Negative
-@Link
 @User
-
+@Create_User_Negative_scenarios
+@User_Negative
+@ReportName User_Negative
+@Link
 
 Narrative:
 In order to test New_Collar service

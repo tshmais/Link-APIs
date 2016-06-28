@@ -1,8 +1,9 @@
 Meta:
-@ReportName Negative
-@Link
 @User
-@NegativeUser
+@User_Negative
+@ReportName User_Negative
+@User_Profile_Negative_scenarios
+@Link
 
 Narrative:
 In order to test Get User Service

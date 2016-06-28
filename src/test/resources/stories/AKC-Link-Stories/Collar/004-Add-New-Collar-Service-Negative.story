@@ -1,8 +1,11 @@
 Meta:
-@ReportName Positive
+@Add_Collar_Negative_scenarios
+@Collar_Negative
+@ReportName Collar_Negative
 @Collar
 @Link
-@NegativeCollar
+
+
 Narrative:
 In order to test New_Collar service
 As a tester
