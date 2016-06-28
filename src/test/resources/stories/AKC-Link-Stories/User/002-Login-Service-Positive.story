@@ -16,7 +16,7 @@ And we set Body with {
     "loginProviderToken" : ""
 }
 Then the service response should be: 200
-And json response should equal:Positive_TC-001_Login_service
+|--And json response should equal:Positive_TC-001_Login_service
 
 Scenario: Positive TC-002: Verify Login service using valid data for old LINK user
 Given service method is post
@@ -29,4 +29,4 @@ And we set Body with {
     "token" : ""
 }
 Then the service response should be: 200
-And json response should equal:Positive_TC-002_Login_service
+|--And json response should equal:Positive_TC-002_Login_service
