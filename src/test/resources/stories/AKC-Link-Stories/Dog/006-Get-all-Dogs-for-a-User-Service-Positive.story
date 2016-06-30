@@ -14,11 +14,11 @@ Scenario: Positive TC-001: Verify  Get all dogs for a user service using valid d
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User's_Dogs_service with 191
+When service url equal : Get_User's_Dogs_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json response should equal:Positive_TC-001_Get_User's_Dogs_service
+|--And json response should equal:Positive_TC-001_Get_User's_Dogs_service
 
 
 
@@ -26,22 +26,22 @@ Scenario: Positive TC-002: Verify  Get all dogs for a user service using valid d
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User's_Dogs_service with 168
+When service url equal : Get_User's_Dogs_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json response should equal:Positive_TC-002_Get_User's_Dogs_service
+|--And json response should equal:Positive_TC-002_Get_User's_Dogs_service
 
 
 Scenario: Positive TC-004: Verify  Get all dogs for a user service using valid data  for user with multi dogs 
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User's_Dogs_service with 191
+When service url equal : Get_User's_Dogs_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json response should equal:Positive_TC-004_Get_User's_Dogs_service
+|--And json response should equal:Positive_TC-004_Get_User's_Dogs_service
 
 
 
@@ -49,12 +49,11 @@ Scenario:Positive TC-005: Verify  Get all dogs for a user service using valid da
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User's_Dogs_service with 168
-
+When service url equal : Get_User's_Dogs_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json response should equal:Positive_TC-005_Get_User's_Dogs_service
+|--And json response should equal:Positive_TC-005_Get_User's_Dogs_service
 
 
 
@@ -62,7 +61,7 @@ Scenario: Positive TC-007: Verify  Get all dogs for a user service using valid d
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User's_Dogs_service with 194
+When service url equal : Get_User's_Dogs_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200

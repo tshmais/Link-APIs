@@ -15,7 +15,7 @@ Scenario: Positive TC-001: Verify  Add User Dog service using valid user data  f
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -43,7 +43,7 @@ Scenario:Positive TC-002: Verify  Add User Dog service using valid same user dat
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal :  Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -71,7 +71,7 @@ Scenario:Positive TC-003: Verify Add User Dog service using neutered "true" for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -99,7 +99,7 @@ Scenario: Positive TC-004: Verify Add User Dog service using neutered "false" fo
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -127,7 +127,7 @@ Scenario: Positive TC-005: Verify  Add User Dog service using  purebred "true" w
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -156,7 +156,7 @@ Scenario: Positive TC-006: Verify  Add User Dog service using purebred "true" wi
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -184,7 +184,7 @@ Scenario: Positive TC-007: Verify Add User Dog service using purebred "true" wit
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -212,7 +212,7 @@ Scenario: Positive TC-008: Verify Add User Dog service using purebred "true" wit
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -240,7 +240,7 @@ Scenario: Positive TC-009: Verify Add User Dog service using purebred "false" wi
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -268,7 +268,7 @@ Scenario: Positive TC-010: Verify Add User Dog service using purebred "false" wi
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -296,7 +296,7 @@ Scenario:Positive TC-011: Verify Add User Dog service using purebred "false" wit
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -324,7 +324,7 @@ Scenario: Positive TC-012: Verify Add User Dog service using purebred "false" wi
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -352,7 +352,7 @@ Scenario: Positive TC-013: Verify Add User Dog service using  "akcRegistrationNo
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -380,7 +380,7 @@ Scenario: Positive TC-014:Verify Add User Dog service using 25 for breed_id1_per
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -408,7 +408,7 @@ Scenario: Positive TC-015: Verify Add User Dog service using 50 for breed_id1_pe
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -436,7 +436,7 @@ Scenario:Positive TC-016: Verify Add User Dog service using 75 for breed_id1_per
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -464,7 +464,7 @@ Scenario: Positive TC-017: Verify Add User Dog service using 1 for Age
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -492,7 +492,7 @@ Scenario: Positive TC-018: Verify Add User Dog service using 50 for Age
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -520,7 +520,7 @@ Scenario: Positive TC-019: Verify Add User Dog service using 25 for Age
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {

@@ -13,11 +13,11 @@ Scenario: Positive TC-001: Verify Get User data service using valid data for new
 Given Create new user
 And Login with valid cridintials
 And service method is get
-When the service url equal: Get_User_service with 191
+When service url equal : Get_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 Then the service response should be: 200
-And json response should equal:Positive_TC-001_Get_User_service
+|--And json response should equal:Positive_TC-001_Get_User_service
 
 
 Scenario: Positive TC-002: Verify Get User data service using valid data for old LINK user

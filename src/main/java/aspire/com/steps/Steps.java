@@ -78,9 +78,29 @@ public class Steps {
 		  ASReport.getInstance().append(URL);
 		 }
 		 
+		 
 		 @When("the service url equal: $url with $param")
 		 @Then("the service url equal: $url with $param")
 		 public void setServicesURLwithParametr(String url, String param) throws URISyntaxException {
+		  if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
+		   URL = url;
+		  } else if (url.startsWith("%s")) {
+		   URL = String.format(url, getRootUrl());
+		  } else {
+		   URL = String.format(
+		     EnvirommentManager.getInstance().getProperty(url),
+		     getRootUrl());
+		  }
+		  URL = URL.replaceFirst("\\[parameter\\]", param);
+		  
+		  reqHandler.setRequestUrl(URL);
+
+		  ASReport.getInstance().append(URL);
+		 }
+		 
+		 @When("service url equal : $url")
+		 @Then("service url equal : $url")
+		 public void setServicesURLwithParametr2(String url) throws URISyntaxException {
 		  if (url.toLowerCase().startsWith("http://www") || url.toLowerCase().startsWith("https://www")) {
 		   URL = url;
 		  } else if (url.startsWith("%s")) {

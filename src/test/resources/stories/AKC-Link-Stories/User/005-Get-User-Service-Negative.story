@@ -1,9 +1,5 @@
 Meta:
-@User
-@User_Negative
-@ReportName User_Negative
-@User_Profile_Negative_scenarios
-@Link
+@skip
 
 Narrative:
 In order to test Get User Service

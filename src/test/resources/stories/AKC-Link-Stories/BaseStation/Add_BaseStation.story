@@ -1,10 +1,5 @@
 Meta:
-@BaseStation
-@BaseStation_Status_Positive_scenarios
-@BaseStation_Positive
-@ReportName BaseStation_Positive
-@Link
-
+@Skip
 Narrative:
 In order to test Add Base service
 As a tester

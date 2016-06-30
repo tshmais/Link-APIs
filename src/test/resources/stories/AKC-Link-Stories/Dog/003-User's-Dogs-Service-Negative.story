@@ -14,7 +14,7 @@ Scenario: Negative TC-001: Verify  Add User Dog service using empty data  for na
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -43,7 +43,7 @@ Scenario:Negative TC-002: Verify  Add User Dog service using empty data  for pho
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -71,7 +71,7 @@ Scenario: Negative TC-003: Verify  Add User Dog service using empty data  for ge
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -100,7 +100,7 @@ Scenario:Negative TC-004: Verify  Add User Dog service using empty data  for neu
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -129,7 +129,7 @@ Scenario: Negative TC-005: Verify Add User Dog service using empty data  for age
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -157,7 +157,7 @@ Scenario: Negative TC-006: Verify  Add User Dog service using empty data  for pu
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -186,7 +186,7 @@ Scenario:Negative TC-007: Verify  Add User Dog service using empty data with pur
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -215,7 +215,7 @@ Scenario: Negative TC-008: Verify  Add User Dog service using empty data with pu
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -242,7 +242,7 @@ Scenario: Negative TC-009:Verify Add User Dog service using empty data with pure
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -271,7 +271,7 @@ Scenario: Negative TC-010: Verify  Add User Dog service using empty data  for de
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 
@@ -301,7 +301,7 @@ Scenario: Negative TC-011: Verify  Add User Dog service using empty data  for da
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -330,7 +330,7 @@ Scenario: Negative TC-012: Verify  Add User Dog service using empty data  for we
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 
@@ -360,7 +360,7 @@ Scenario: Negative TC-013: Verify  Add User Dog service using empty data  for ey
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -389,7 +389,7 @@ Scenario: Negative TC-014: Verify Add User Dog service using empty data for weig
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -417,7 +417,7 @@ Scenario: Negative TC-015: Verify Add User Dog service using empty data for akcR
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -439,14 +439,14 @@ And we set Body with {
 }
     
 Then the service response should be: 201
-And json response should equal:Negative_TC-0015_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0015_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-016: Add User Dog service by pass invalid data for name parameter
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -467,14 +467,14 @@ And we set Body with {
   "akcRegistrationNo": ""
 }  
 Then the service response should be: 201
-And json response should equal:Negative_TC-0016_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0016_Post_Dog_to_User_service
 
 
 Scenario: Negative TC-017: Verify  Add User Dog service using invalid data  for photo
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -502,7 +502,7 @@ Scenario: Negative TC-018: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -530,7 +530,7 @@ Scenario: Negative TC-019: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -557,7 +557,7 @@ Scenario: Negative TC-020: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -584,7 +584,7 @@ Scenario: Negative TC-021: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -611,7 +611,7 @@ Scenario: Negative TC-022: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -638,7 +638,7 @@ Scenario:Negative TC-023: Verify  Add User Dog service using invalid data  for b
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -666,7 +666,7 @@ Scenario: Negative TC-024: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -694,7 +694,7 @@ Scenario: Negative TC-025: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -722,7 +722,7 @@ Scenario: Negative TC-026: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -749,7 +749,7 @@ Scenario: Negative TC-027: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -776,7 +776,7 @@ Scenario: Negative TC-028: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -804,7 +804,7 @@ Scenario: Negative TC-029: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -832,7 +832,7 @@ Scenario: Negative TC-030: Verify  Add User Dog service using invalid data  for 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -860,7 +860,7 @@ Scenario: Negative TC-031: Verify  Add User Dog service using empty data  for al
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -888,7 +888,7 @@ Scenario: Negative TC-032: Verify  Add User Dog service using invalid data  (-1,
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -916,7 +916,7 @@ Scenario: Negative TC-033: Verify  Add User Dog service using  invalid data (-1)
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -944,7 +944,7 @@ Scenario: Negative TC-034: Verify  Add User Dog service using invalid data  (51)
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Post_Dog_to_User_service with 191
+When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {

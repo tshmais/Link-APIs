@@ -15,7 +15,7 @@ Scenario: Negative TC-001: Verify  Add Collar service using empty data  for imei
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -30,7 +30,7 @@ Scenario: Negative TC-002: Verify  Add Collar service using empty data  for hard
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -46,7 +46,7 @@ Scenario: Negative TC-003: Verify  Add Collar service using empty data  for firm
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -63,7 +63,7 @@ Scenario: Negative TC-004: Verify  Add Collar service using invalid data  for im
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -79,7 +79,7 @@ Scenario: Negative TC-005: Verify  Add Collar service using invalid data  for ha
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
@@ -95,7 +95,7 @@ Scenario: Negative TC-006: Verify  Add Collar service using invalid data  for fi
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {	
@@ -110,7 +110,7 @@ Scenario: Negative TC-008: Verify  Add Collar service using data  for Non consis
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And add to the header Authorization with value 55dffa77-870e-4c81-bfaf-c147944f2d31
@@ -126,7 +126,7 @@ Scenario: Negative TC-009: Verify  Add Collar service using empty data  for All 
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When the service url equal: Add_New_Collar_service with 189
+When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
