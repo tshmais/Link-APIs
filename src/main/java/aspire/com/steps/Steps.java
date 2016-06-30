@@ -19,7 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import com.aspire.automationReport.ASReport;
 import com.google.gson.Gson;
@@ -43,6 +42,7 @@ public class Steps {
 	public String emailAddress;
 	public String StringjsonResponse;
 	public String response;
+	public String response2;
 	public static String Date;
 	public String ZipCode;
 	public String Location;
@@ -90,7 +90,7 @@ public class Steps {
 		     EnvirommentManager.getInstance().getProperty(url),
 		     getRootUrl());
 		  }
-		  URL = URL.replaceFirst("\\[parameter\\]", param);
+		  URL = URL.replaceFirst("\\[parameter\\]", response2);
 		  
 		  reqHandler.setRequestUrl(URL);
 
@@ -264,8 +264,96 @@ public void setJsonBody1(String expected) throws JSONException {
 
 }
 	
-	 
+	@Given ("Login with valid cridintials")
+		public void Login() throws URISyntaxException, ClientProtocolException, IOException{
+		String name = "Content-Type";
+		String value = "application/json";
+		
+		reqHandler.createNewRequest(Method.POST, myResponse);
+		String url = "Login_service";
+		URL = String.format(
+			     EnvirommentManager.getInstance().getProperty(url),
+			     getRootUrl());
+        reqHandler.setRequestUrl(URL);
+        ASReport.getInstance().append(URL);
+        reqHandler.setRequestHeader(name, value);
+        
+        String json =EnvirommentManager.getInstance().getProperty("LoginPayload");
+        
+    	if (json.contains("UserEmail")) {
+			json = json.replace("UserEmail", emailAddress);}
+    	
+    	
+    	
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.out.print(jsonResponse);
+		String StringjsonResponse = jsonResponse.toString();
+		
+		String expression = "$.access_token";
+		response = "bearer"
+				+ " "
+				+ JsonPath.parse(StringjsonResponse).read(expression ,
+						String.class);
+		System.err.println("The token for the created item is: " + response);
+		
+		String expression2 = "$.userId";
+		response2 = JsonPath.parse(StringjsonResponse).read(expression2 ,
+						String.class);
+		
 	}
+	
+	@Given ("Create new user")
+	
+	public void Create_User() throws URISyntaxException, ClientProtocolException, IOException{
+		String name = "Content-Type";
+		String value = "application/json";
+		
+		reqHandler.createNewRequest(Method.POST, myResponse);
+		String url = "Create_User_service";
+		URL = String.format(
+			     EnvirommentManager.getInstance().getProperty(url),
+			     getRootUrl());
+        reqHandler.setRequestUrl(URL);
+        ASReport.getInstance().append(URL);
+        reqHandler.setRequestHeader(name, value);
+        
+        String json =EnvirommentManager.getInstance().getProperty("CreateUserPayload");
+        if (json.equalsIgnoreCase("null")) {
+			json = "";
+		}
+		if (json.contains("Generated-Email")) {
+			emailAddress = "user"
+					+ Integer.toString((int) Math.round(Math.random() * 99999))
+					+ "@linkbyakc.com";
+			json = json.replace("Generated-Email", emailAddress);}
+		
+			
+			if (json.contains("Generated-imei")) {
+				imei = "123456789"
+						+ Integer.toString((int) Math.round(Math.random() * 99999));
+				json = json.replace("Generated-imei", imei);
+		}
+			
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.out.print(jsonResponse);
+		
+		
+		
+	}
+	
+ 
+		
+		
+	}
+	
+	 
+	
 
 
 
