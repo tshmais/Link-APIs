@@ -140,7 +140,7 @@ public class StoriesTest extends JUnitStories {
 		String dateAndTime1 = ft.format(date);
 		dateAndTime = dateAndTime.replace(",,", " ");
 		dateAndTime1 = dateAndTime1.replace(",,", ":");
-		String ReportName = "Link API Automation Report " + dateAndTime + "(BuildNumber " + buildName + ")" + ".html";
+		String ReportName = "Link API Automation Report " + dateAndTime + " " +"(BuildNumber " + buildName + ")" + ".html";
 		
 		
 		AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
@@ -172,7 +172,7 @@ public class StoriesTest extends JUnitStories {
 //			PlatformInformation.browserName = browsers[i];
 			Embedder embedder = getEmbedder();
 //			embedder.systemProperties().setProperty("browser", browsers[i]);
-			ReportName = "Link APIs Automation Report " + dateAndTime + "(Build Number " + buildName + ")" + ".html";
+			ReportName = "Link APIs Automation Report " + dateAndTime +" "+ "(Build Number " + buildName + ")" + ".html";
 			AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
 			startStories(embedder, false);
 			if (rerunFailed) {

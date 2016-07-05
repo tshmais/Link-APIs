@@ -69,9 +69,9 @@ public class LifecycleSteps {
     		}
         	String environment = "";
 			if (root_url.contains("qa")) {
-				environment = "Link API – QA environment";
+				environment = "Link API - QA environment";
 			} else {
-				environment = "Link API – INT environment";
+				environment = "Link API - INT environment";
 			}
         	  StoriesStatusCounter counter =  AspireReport.getInstance().getReportDataManager().getTestCounters();
               int passedTestCount = counter.getPassed();
