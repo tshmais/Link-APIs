@@ -4,6 +4,8 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.PrintWriter;
 
+import jo.aspire.generic.EnvirommentManager;
+
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.AfterStory;
@@ -11,6 +13,7 @@ import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.BeforeStory;
 import org.openqa.selenium.WebDriverException;
+
 
 
 import com.aspire.automationReport.AspireReport;
@@ -59,6 +62,17 @@ public class LifecycleSteps {
     public void runAfterStories() {
     	AspireReport.getInstance().printEveryThing();
         try {
+        	
+        	String root_url = System.getProperty("ROOT_URL");
+        	if (root_url == null) {
+    			root_url = EnvirommentManager.getInstance().getProperty("ROOT_URL");
+    		}
+        	String environment = "";
+			if (root_url.contains("qa")) {
+				environment = "Link API – QA environment";
+			} else {
+				environment = "Link API – INT environment";
+			}
         	  StoriesStatusCounter counter =  AspireReport.getInstance().getReportDataManager().getTestCounters();
               int passedTestCount = counter.getPassed();
               int failedTestCount = counter.getFailed();
@@ -72,7 +86,7 @@ public class LifecycleSteps {
      	    	HighLevelResults = HighLevelResults + "<font color='green'>  - Number of " + key + " test cases passed: </font>" + metaInfo.getPassedCount() + "<br/>" + "<font color='red'>  - Number of " + key + " test cases failed: </font>" + metaInfo.getFailedCount()+ "<br/>";
      	     }
      	     
-     	     String email_body = "Hi Team,"+ "<br/>" + "<br/>" +"Please see attached acceptance test results"+ "<br/>" + "<br/>" +"<b> High Level Results</b>" + "<br/>" + HighLevelResults + "<br/>" + "<br/>" +"Thanks,"+ "<br/>" +"QA Team";
+     	     String email_body = "Hi Team,"+ "<br/>" + "<br/>" +"Please see attached acceptance test results"+ "<br/>" + "<br/>" +environment+ "<br/>" + "<br/>"+"<b> High Level Results</b>" + "<br/>" + HighLevelResults + "<br/>" + "<br/>" +"Thanks,"+ "<br/>" +"QA Team";
      	     writer.println("email_body = " + email_body);
      	     writer.close();
            

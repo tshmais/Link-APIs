@@ -131,24 +131,36 @@ public class StoriesTest extends JUnitStories {
 		}
 		 String buildName = System.getProperty("buildName");
 		Date date = new Date();
-		SimpleDateFormat ft = new SimpleDateFormat("EEE, d MMM yyyy - hh,,mm,,ss");
+		SimpleDateFormat ft = new SimpleDateFormat("yyyy MM dd - hh,,mm,,ss");
 		if (buildName == null) {
 			buildName = "BuildNumber";
 		}
 
 		String dateAndTime = ft.format(date);
+		String dateAndTime1 = ft.format(date);
 		dateAndTime = dateAndTime.replace(",,", " ");
-		String ReportName = "Automation_Report_BuildNumber-" + buildName + "_" + dateAndTime + ".html";
+		dateAndTime1 = dateAndTime1.replace(",,", ":");
+		String ReportName = "Link API Automation Report " + dateAndTime + "(BuildNumber " + buildName + ")" + ".html";
+		
 		
 		AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
 		
 		new File(AspireReport.getInstance().getReportDataManager().getReportPath()).mkdirs();
 		String OS = System.getProperty("os.name").toLowerCase();
 		System.out.println("Opertation system version: " + OS);
-
-		 AspireReport.getInstance().getReportDataManager().setReportTitle("Link APIs");
+		String root_url = System.getProperty("ROOT_URL");
+    	if (root_url == null) {
+			root_url = EnvirommentManager.getInstance().getProperty("ROOT_URL");
+		}
+    	String environment = "";
+		if (root_url.contains("qa")) {
+			environment = "QA environment";
+		} else {
+			environment = "INT environment";
+		}
+		 AspireReport.getInstance().getReportDataManager().setReportTitle("Link APIs" + " " + "(" + environment + ")" );
 		  AspireReport.getInstance().getReportDataManager().setReportSubTitle("Testing Report");
-		  AspireReport.getInstance().getReportDataManager().setTitle("");
+		  AspireReport.getInstance().getReportDataManager().setTitle(dateAndTime1);
 
 //		if (System.getProperty("RunBrowsers") != null && System.getProperty("RunBrowsers") != "") {
 //			browsers = System.getProperty("RunBrowsers").split(",");
@@ -160,7 +172,7 @@ public class StoriesTest extends JUnitStories {
 //			PlatformInformation.browserName = browsers[i];
 			Embedder embedder = getEmbedder();
 //			embedder.systemProperties().setProperty("browser", browsers[i]);
-			ReportName = "Automation_Report_BuildNumber-" + buildName + "_" + dateAndTime + ".html";
+			ReportName = "Link APIs Automation Report " + dateAndTime + "(Build Number " + buildName + ")" + ".html";
 			AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
 			startStories(embedder, false);
 			if (rerunFailed) {
