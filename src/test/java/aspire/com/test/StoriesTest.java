@@ -87,7 +87,7 @@ public class StoriesTest extends JUnitStories {
 	@Override
 	protected List<String> storyPaths() {
 		return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
-				asList("**/" + System.getProperty("storyFilter", "*") + ".story"),
+				asList("**/" + System.getProperty("storyFilter", "Create user with dogs basestation and collars") + ".story"),
 				null);
 
 	}
@@ -140,8 +140,11 @@ public class StoriesTest extends JUnitStories {
 		String dateAndTime1 = ft.format(date);
 		dateAndTime = dateAndTime.replace(",,", " ");
 		dateAndTime1 = dateAndTime1.replace(",,", ":");
-		String ReportName = "Link API Automation Report " + dateAndTime + " " +"(BuildNumber " + buildName + ")" + ".html";
 		
+		String ReportName = System.getProperty("Report_Name");
+		if (ReportName == null) {
+		 ReportName = "Link API Automation Report " + dateAndTime + " " +"(BuildNumber " + buildName + ")" + ".html";
+		}
 		
 		AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
 		
@@ -172,7 +175,6 @@ public class StoriesTest extends JUnitStories {
 //			PlatformInformation.browserName = browsers[i];
 			Embedder embedder = getEmbedder();
 //			embedder.systemProperties().setProperty("browser", browsers[i]);
-			ReportName = "Link APIs Automation Report " + dateAndTime +" "+ "(Build Number " + buildName + ")" + ".html";
 			AspireReport.getInstance().getReportDataManager().setReportFileName(ReportName);
 			startStories(embedder, false);
 			if (rerunFailed) {

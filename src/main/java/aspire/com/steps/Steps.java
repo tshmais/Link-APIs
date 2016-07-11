@@ -39,7 +39,6 @@ import jo.aspire.api.automationUtil.MethodEnum.Method;
 import jo.aspire.generic.EnvirommentManager;
 import jo.aspire.generic.Parsers;
 
-
 public class Steps {
 	private static String JsonResponse = null;
 	HttpRequestHandler reqHandler = HttpRequestHandler.getInstance();
@@ -59,7 +58,15 @@ public class Steps {
 	public List<String> dataList = new ArrayList<String>();
 	public String JsonValue;
 	public String JsonValue2;
-	String emails[];
+
+	// Create Data
+	int i;
+	public String User_Email;
+	public String access_token;
+	public String user_id;
+	int x;
+	int y;
+	int z;
 
 	private String getRootUrl() {
 
@@ -390,6 +397,7 @@ public class Steps {
 
 		assertThat(dbConn.dbOpenConn(), Matchers.equalTo(true));
 	}
+
 	@When("I want to pull the data from the DB using $query query")
 	@Then("I want to pull the data from the DB using $query query")
 	public void getDBData(String query) throws ClassNotFoundException,
@@ -412,8 +420,8 @@ public class Steps {
 	}
 
 	@Then("I want to pull the data from the DB using $query query with response ID")
-	public void getDBDataRID(String query)
-			throws ClassNotFoundException, SQLException {
+	public void getDBDataRID(String query) throws ClassNotFoundException,
+			SQLException {
 
 		String getQuery = String.format(EnvirommentManager.getInstance()
 				.getProperty(query));
@@ -441,8 +449,7 @@ public class Steps {
 		Assert.assertEquals(result.trim(), expected);
 
 	}
-	
-	
+
 	@Then("json path $expression should be equal:$expected")
 	@When("json path $expression should be equal:$expected")
 	public void getItemfromDB(String expression, int expec)
@@ -450,66 +457,132 @@ public class Steps {
 		// JsonReader.GenerateJson("sql_get_all_users");
 		String result = JsonPath.parse(StringjsonResponse).read(expression,
 				String.class);
-	String expected  = dataList.get(expec);
+		String expected = dataList.get(expec);
 		Assert.assertEquals(result.trim(), expected);
 
 	}
-	
+
 	@Then("print the value")
-	public void print(){
-		String expected  = dataList.get(0);
+	public void print() {
+		String expected = dataList.get(0);
 		System.err.println("New value is : " + expected);
 	}
+
+	// /////////////////////////////////////////////++++++ Create Data
+	// ++++++///////////////////////////////////////////////////
+
+	/*
+	 * @When("we set DataSetBody with :$jsonbody")
+	 * 
+	 * @Then("we set DataSetBody with :$jsonbody") public void
+	 * setJsonBodySetData(String jsonbody) throws UnsupportedEncodingException {
+	 * 
+	 * 
+	 * if (jsonbody.contains("Generated-Email")) { String emailAddress1 =
+	 * EnvirommentManager.getInstance().getProperty( "User_Email_Address");
+	 * String emails []; emails = emailAddress1.split(",");
+	 * 
+	 * for (int x = 0; x < emails.length; x++) { for (int j = 0; j <
+	 * emails[x].length(); j++) {
+	 * 
+	 * jsonbody = jsonbody.replace("Generated-Email", emails[x]);
+	 * 
+	 * }
+	 * 
+	 * } reqHandler.setRequestBody(jsonbody); System.out.print(jsonbody); } }
+	 */
+
+	@Given("Create $items Items to url: $url with body: $body with method $method")
+	public void createnthItems(int items1, String url1, String body1,
+			String method1) throws URISyntaxException, ClientProtocolException,
+			IOException {
+		// prepare URL
+		/*
+		 * String emailAddress1 = EnvirommentManager.getInstance()
+		 * .getProperty("User_Email_Address");
+		 */
+
+		// emails = emailAddress1.split(",");
+		for (i = 1; i <= items1; i++) {
+			create_Users(items1, url1, body1, method1);
+
+		}
+
+	}
+
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $dogs dog for each user and the same start with $name")
+	public void Create_Users_with_Dogs(int items1, String url1, String body1,
+			String user_name, String method1, int dogs, String Dog_Name)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithdogs(items1, url1, body1, user_name, method1, dogs,
+					Dog_Name);
+
+		}
+	}
 	
-	//////////////////////////////////////////////////////////////////////////////////////////////////
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $basestation BaseStation for each user")
+	public void Create_Users_with_BaseStation(int items1, String url1, String body1,
+			String user_name, String method1, int baseStation)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithbaseStation(items1, url1, body1, user_name, method1, baseStation
+					);
+
+		}
+
+}
 	
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $collars collars for each user")
+	public void Create_Users_with_collars(int items1, String url1, String body1,
+			String user_name, String method1, int collars)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithcollars(items1, url1, body1, user_name, method1, collars
+					);
+
+		}
+
+}
 	
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method with $collars collars and $basestations basestations for each user")
+	public void Create_Users_with_collarsAnd_Basestations(int items1, String url1, String body1,
+			String user_name, String method1, int collars , int basestations)
+			throws URISyntaxException, ClientProtocolException, IOException {
 
-	
-	@When("we set DataSetBody with :$jsonbody")
-	 @Then("we set DataSetBody with :$jsonbody")
-	 public void setJsonBodySetData(String jsonbody)
-	   throws UnsupportedEncodingException {
+		for (i = 1; i <= items1; i++) {
 
+			createUserswithcollarsAnd_Basestations(items1, url1, body1, user_name, method1, collars , basestations
+					);
 
-	  if (jsonbody.contains("Generated-Email")) {
-	String   emailAddress1 = EnvirommentManager.getInstance().getProperty(
-	     "User_Email_Address");
-	   String  emails [];
-	   emails = emailAddress1.split(",");
+		}
 
-	   for (int x = 0; x < emails.length; x++) {
-	    for (int j = 0; j < emails[x].length(); j++) {
+}
+		
+	@Given("Create $items Items to url : $url with body : $body and the name of users start with $user_name with method $method with $Dogs dogs start with $Name and $collars collars and $basestations basestations for each user")
+	public void Create_Users_with_Dogs_collarsAnd_Basestations(int items1, String url1, String body1,
+			String user_name, String method1,int dogs, String Dog_name, int collars , int basestations)
+			throws URISyntaxException, ClientProtocolException, IOException {
 
-	     jsonbody = jsonbody.replace("Generated-Email", emails[x]);
+		for (i = 1; i <= items1; i++) {
 
-	    }
+			createUserswith_dogs_collarsAnd_Basestations(items1, url1, body1, user_name, method1, dogs , Dog_name,collars , basestations
+					);
 
-	   }
-	   reqHandler.setRequestBody(jsonbody);
-	   System.out.print(jsonbody);
-	  }
-	 }
-	 
-	 @Given("Create $items Items to url: $url with body: $body with method $method")
-	 public void createnthItems(int items, String url, String body, String method) throws URISyntaxException, ClientProtocolException, IOException {
-	  //prepare URL
-		 String emailAddress1 = EnvirommentManager.getInstance()
-					.getProperty("User_Email_Address");
-			
-			emails = emailAddress1.split(",");
-	  for (int i = 0; i < items; i++) {
-	   //create user
-		  createUser(items,url,body,method);
-	   
-	  }
-	  
-	//  generated_items.put(10, jsonResponse);
+		}
 
-	 }
-	 
-	private void createUser(int items,String url,String body,String method) throws URISyntaxException,
-			ClientProtocolException, IOException {
+}
+		
+		
+
+	private void create_Users(int items, String url, String body, String method)
+			throws URISyntaxException, ClientProtocolException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
 		Method methodName;
@@ -530,51 +603,524 @@ public class Steps {
 			methodName = Method.GET;
 			break;
 		}
-		
-		
-reqHandler.createNewRequest(methodName, myResponse);
-		
+
+		reqHandler.createNewRequest(methodName, myResponse);
+
 		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
 				getRootUrl());
 		reqHandler.setRequestUrl(URL);
 		ASReport.getInstance().append(URL);
 		reqHandler.setRequestHeader(name, value);
 
-		String jsonbody = EnvirommentManager.getInstance().getProperty(
-				body);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+		User_Email = "newusers" + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
-			
-jsonbody = jsonbody.replace("Generated-Email", emails[items]);
-					reqHandler.setRequestBody(jsonbody);
-					System.out.print(jsonbody);
-					CloseableHttpResponse resp = reqHandler.execute(myResponse);
-					jsonResponse = parsers.asJson(resp);
-					System.out.print(jsonResponse);
-				}
 
-			
-		
-
-		if (jsonbody.contains("Generated-imei")) {
-			String emailAddress1 = EnvirommentManager.getInstance()
-					.getProperty("User_Email_Address");
-			String emails[];
-			emails = emailAddress1.split(",");
-
-			for (int x = 0; x < emails.length; x++) {
-				for (int j = 0; j < emails[x].length(); j++) {
-
-					jsonbody = jsonbody.replace("Generated-Email", emails[x]);
-					reqHandler.setRequestBody(jsonbody);
-					System.out.print(jsonbody);
-					CloseableHttpResponse resp = reqHandler.execute(myResponse);
-					jsonResponse = parsers.asJson(resp);
-					System.out.print(jsonResponse);
-				}
-
-			}
+			jsonbody = jsonbody.replace("Generated-Email", User_Email);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.print(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.print(jsonResponse);
 		}
 
 	}
+
+	private void createUserswithdogs(int items, String url, String body,
+			String username, String method, int Dogs, String Dog_Name)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		String name = "Content-Type";
+		String value = "application/json";
+		Method methodName;
+		switch (method) {
+		case "get":
+			methodName = Method.GET;
+			break;
+		case "put":
+			methodName = Method.PUT;
+			break;
+		case "post":
+			methodName = Method.POST;
+			break;
+		case "delete":
+			methodName = Method.DELETE;
+			break;
+		default:
+			methodName = Method.GET;
+			break;
+		}
+
+		reqHandler.createNewRequest(methodName, myResponse);
+
+		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+				getRootUrl());
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+
+		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+
+		User_Email = username + i + "@LinkAKC.com";
+
+		if (jsonbody.contains("Generated-Email")) {
+
+			jsonbody = jsonbody.replace("Generated-Email", User_Email);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.print(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.print(jsonResponse);
+		}
+		for (x = 1; x <= Dogs; x++) {
+
+			login();
+			create_dog(method, Dog_Name);
+
+		}
+
+	}
+
+	private void createUserswithbaseStation(int items, String url, String body,
+			String username, String method, int BaseStations)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		String name = "Content-Type";
+		String value = "application/json";
+		Method methodName;
+		switch (method) {
+		case "get":
+			methodName = Method.GET;
+			break;
+		case "put":
+			methodName = Method.PUT;
+			break;
+		case "post":
+			methodName = Method.POST;
+			break;
+		case "delete":
+			methodName = Method.DELETE;
+			break;
+		default:
+			methodName = Method.GET;
+			break;
+		}
+
+		reqHandler.createNewRequest(methodName, myResponse);
+
+		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+				getRootUrl());
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+
+		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+
+		User_Email = username + i + "@LinkAKC.com";
+
+		if (jsonbody.contains("Generated-Email")) {
+
+			jsonbody = jsonbody.replace("Generated-Email", User_Email);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.print(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.print(jsonResponse);
+		}
+		for (x = 1; x <= BaseStations; x++) {
+
+			login();
+			Create_BaseStation (url,method);
+
+		}
+
+	}
+	
+	private void createUserswithcollars(int items, String url, String body,
+			String username, String method, int collars)
+			throws URISyntaxException, ClientProtocolException, IOException {
+
+		String name = "Content-Type";
+		String value = "application/json";
+		Method methodName;
+		switch (method) {
+		case "get":
+			methodName = Method.GET;
+			break;
+		case "put":
+			methodName = Method.PUT;
+			break;
+		case "post":
+			methodName = Method.POST;
+			break;
+		case "delete":
+			methodName = Method.DELETE;
+			break;
+		default:
+			methodName = Method.GET;
+			break;
+		}
+
+		reqHandler.createNewRequest(methodName, myResponse);
+
+		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+				getRootUrl());
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+
+		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+
+		User_Email = username + i + "@LinkAKC.com";
+
+		if (jsonbody.contains("Generated-Email")) {
+
+			jsonbody = jsonbody.replace("Generated-Email", User_Email);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.print(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.print(jsonResponse);
+		}
+		for (x = 1; x <= collars; x++) {
+
+			login();
+			Create_Collars (url,method);
+
+		}
+
+	}
+	
+	private void	createUserswithcollarsAnd_Basestations(int items, String url, String body, String username,String method, int collars ,int basestations
+			) throws ClientProtocolException, URISyntaxException, IOException{		String name = "Content-Type";
+			String value = "application/json";
+			Method methodName;
+			switch (method) {
+			case "get":
+				methodName = Method.GET;
+				break;
+			case "put":
+				methodName = Method.PUT;
+				break;
+			case "post":
+				methodName = Method.POST;
+				break;
+			case "delete":
+				methodName = Method.DELETE;
+				break;
+			default:
+				methodName = Method.GET;
+				break;
+			}
+
+			reqHandler.createNewRequest(methodName, myResponse);
+
+			URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+			reqHandler.setRequestUrl(URL);
+			ASReport.getInstance().append(URL);
+			reqHandler.setRequestHeader(name, value);
+
+			String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+
+			User_Email = username + i + "@LinkAKC.com";
+
+			if (jsonbody.contains("Generated-Email")) {
+
+				jsonbody = jsonbody.replace("Generated-Email", User_Email);
+				reqHandler.setRequestBody(jsonbody);
+				System.out.print(jsonbody);
+				CloseableHttpResponse resp = reqHandler.execute(myResponse);
+				jsonResponse = parsers.asJson(resp);
+				System.out.print(jsonResponse);
+			}
+			for (x = 1; x <= collars; x++) {
+
+				login();
+				Create_Collars (url,method);
+				
+				}
+			
+			for (y = 1; y <= basestations; y++) {
+
+				login();
+				Create_BaseStation  (url,method);
+				
+				}
+			
+	}
+	
+	
+	private void	createUserswith_dogs_collarsAnd_Basestations(int items, String url, String body, String username,String method, int dogs , String dog_name, int collars ,int basestations
+			) throws ClientProtocolException, URISyntaxException, IOException{		String name = "Content-Type";
+			String value = "application/json";
+			Method methodName;
+			switch (method) {
+			case "get":
+				methodName = Method.GET;
+				break;
+			case "put":
+				methodName = Method.PUT;
+				break;
+			case "post":
+				methodName = Method.POST;
+				break;
+			case "delete":
+				methodName = Method.DELETE;
+				break;
+			default:
+				methodName = Method.GET;
+				break;
+			}
+
+			reqHandler.createNewRequest(methodName, myResponse);
+
+			URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+					getRootUrl());
+			reqHandler.setRequestUrl(URL);
+			ASReport.getInstance().append(URL);
+			reqHandler.setRequestHeader(name, value);
+
+			String jsonbody = EnvirommentManager.getInstance().getProperty(body);
+
+			User_Email = username + i + "@LinkAKC.com";
+
+			if (jsonbody.contains("Generated-Email")) {
+
+				jsonbody = jsonbody.replace("Generated-Email", User_Email);
+				reqHandler.setRequestBody(jsonbody);
+				System.out.print(jsonbody);
+				CloseableHttpResponse resp = reqHandler.execute(myResponse);
+				jsonResponse = parsers.asJson(resp);
+				System.out.print(jsonResponse);
+			}
+			for (x = 1; x <= collars; x++) {
+
+				login();
+				Create_Collars (url,method);
+				
+				}
+			
+			for (y = 1; y <= basestations; y++) {
+
+				login();
+				Create_BaseStation  (url,method);
+				
+				}
+			
+			for (z = 1; z <= basestations; z++) {
+
+				login();
+				create_dog(method,dog_name);
+				
+				}
+			
+	}
+
+
+	public void login() throws URISyntaxException, ClientProtocolException,
+			IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+
+		reqHandler.createNewRequest(Method.POST, myResponse);
+		String url = "Login_service";
+		URL = String.format(EnvirommentManager.getInstance().getProperty(url),
+				getRootUrl());
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+
+		String json = EnvirommentManager.getInstance().getProperty(
+				"LoginPayload");
+
+		if (json.contains("UserEmail")) {
+			json = json.replace("UserEmail", User_Email);
+		}
+
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.out.print(jsonResponse);
+		String StringjsonResponse = jsonResponse.toString();
+
+		String expression = "$.access_token";
+		access_token = "bearer"
+				+ " "
+				+ JsonPath.parse(StringjsonResponse).read(expression,
+						String.class);
+		System.err
+				.println("The token for the created item is: " + access_token);
+
+		String expression2 = "$.userId";
+		user_id = JsonPath.parse(StringjsonResponse).read(expression2,
+				String.class);
+	}
+
+	public void create_dog(String method, String Dog_Name)
+			throws URISyntaxException, ParseException, IOException {
+		String name = "Content-Type";
+		String value = "application/json";
+		Method methodName;
+		switch (method) {
+		case "get":
+			methodName = Method.GET;
+			break;
+		case "put":
+			methodName = Method.PUT;
+			break;
+		case "post":
+			methodName = Method.POST;
+			break;
+		case "delete":
+			methodName = Method.DELETE;
+			break;
+		default:
+			methodName = Method.GET;
+			break;
+		}
+
+		reqHandler.createNewRequest(methodName, myResponse);
+
+		URL = String.format(EnvirommentManager.getInstance().getProperty("Add_New_Dog_service"),
+				getRootUrl());
+		URL = URL.replaceFirst("\\[parameter\\]", user_id);
+		reqHandler.setRequestUrl(URL);
+		ASReport.getInstance().append(URL);
+		reqHandler.setRequestHeader(name, value);
+		reqHandler.setRequestHeader("Authorization", access_token);
+		String jsonbody = EnvirommentManager.getInstance().getProperty(
+				"createdogbody");
+
+		String Dog_Name1 = Dog_Name + i + x;
+
+		if (jsonbody.contains("Generated-name")) {
+
+			jsonbody = jsonbody.replace("Generated-name", Dog_Name1);
+			reqHandler.setRequestBody(jsonbody);
+			System.out.print(jsonbody);
+			CloseableHttpResponse resp = reqHandler.execute(myResponse);
+			jsonResponse = parsers.asJson(resp);
+			System.out.println(jsonResponse);
+		}
+
+	}
+	
+
+	
+public void	Create_BaseStation (String url, String method) throws URISyntaxException, ClientProtocolException, IOException {
+	
+	String name = "Content-Type";
+	String value = "application/json";
+	Method methodName;
+	switch (method) {
+	case "get":
+		methodName = Method.GET;
+		break;
+	case "put":
+		methodName = Method.PUT;
+		break;
+	case "post":
+		methodName = Method.POST;
+		break;
+	case "delete":
+		methodName = Method.DELETE;
+		break;
+	default:
+		methodName = Method.GET;
+		break;
+	}
+
+	reqHandler.createNewRequest(methodName, myResponse);
+
+	URL = String.format(EnvirommentManager.getInstance().getProperty("Add_New_BaseStation_service"),
+			getRootUrl());
+	URL = URL.replaceFirst("\\[parameter\\]", user_id);
+	reqHandler.setRequestUrl(URL);
+	ASReport.getInstance().append(URL);
+	reqHandler.setRequestHeader(name, value);
+	reqHandler.setRequestHeader("Authorization", access_token);
+	String jsonbody = EnvirommentManager.getInstance().getProperty(
+			"createBaseStationbody");
+	 int range = (99999 - 10000) ;     
+	  int newrand = (int) (Math.random() * range) + 10000;
+	String BaseStation_mac = "2345678" + newrand;
+	System.err
+	.println("The MacID for the created item is: " + BaseStation_mac);
+
+
+	if (jsonbody.contains("Generated-macid")) {
+
+		jsonbody = jsonbody.replace("Generated-macid", BaseStation_mac);
+		reqHandler.setRequestBody(jsonbody);
+		System.out.print(jsonbody);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.out.println(jsonResponse);
+	}
+
+	
+	
+	
+	}
+
+public void	Create_Collars (String url, String method) throws URISyntaxException, ClientProtocolException, IOException {
+	
+	String name = "Content-Type";
+	String value = "application/json";
+	Method methodName;
+	switch (method) {
+	case "get":
+		methodName = Method.GET;
+		break;
+	case "put":
+		methodName = Method.PUT;
+		break;
+	case "post":
+		methodName = Method.POST;
+		break;
+	case "delete":
+		methodName = Method.DELETE;
+		break;
+	default:
+		methodName = Method.GET;
+		break;
+	}
+
+	reqHandler.createNewRequest(methodName, myResponse);
+
+	URL = String.format(EnvirommentManager.getInstance().getProperty("Add_New_collars_service"),
+			getRootUrl());
+	URL = URL.replaceFirst("\\[parameter\\]", user_id);
+	reqHandler.setRequestUrl(URL);
+	ASReport.getInstance().append(URL);
+	reqHandler.setRequestHeader(name, value);
+	reqHandler.setRequestHeader("Authorization", access_token);
+	String jsonbody = EnvirommentManager.getInstance().getProperty(
+			"createCollarbody");
+	 int range = (99999 - 10000) ;     
+	  int newrand = (int) (Math.random() * range) + 10000;
+	String Device_ID = "2345678" + newrand;
+	System.err
+	.println("The MacID for the created item is: " + Device_ID);
+
+
+	if (jsonbody.contains("Generated-deviceid")) {
+
+		jsonbody = jsonbody.replace("Generated-deviceid", Device_ID);
+		reqHandler.setRequestBody(jsonbody);
+		System.out.print(jsonbody);
+		CloseableHttpResponse resp = reqHandler.execute(myResponse);
+		jsonResponse = parsers.asJson(resp);
+		System.out.println(jsonResponse);
+	}
+
+	
+	
+	
+	}
+
+
 }
