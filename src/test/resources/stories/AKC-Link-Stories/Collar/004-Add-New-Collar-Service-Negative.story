@@ -11,7 +11,7 @@ In order to test New_Collar service
 As a tester
 I want to make sure all return the code 4xx
     
-Scenario: Negative TC-001: Verify  Add Collar service using empty data  for imei
+Scenario:TC-001_COLLAR_Negative: Verify Add Collar service using empty data  for deviceId
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -19,14 +19,14 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "imei" : "",
+    "deviceId" : "",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : "1.1"
 }
 
 Then the service response should be: 409
 
-Scenario: Negative TC-002: Verify  Add Collar service using empty data  for hardwareVersion
+Scenario: TC-002_COLLAR_Negative: Verify Add Collar service using empty data  for hardwareVersion
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -34,15 +34,15 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "imei" : "Generated-imei",
+  "deviceId" : "Generated-deviceId",
     "hardwareVersion" : "",
     "firmwareVersion" : "1.1"
 }
 
-Then the service response should be: 409
+Then the service response should be: 201
 
 
-Scenario: Negative TC-003: Verify  Add Collar service using empty data  for firmwareVersion
+Scenario: TC-003_COLLAR_Negative: Verify Add Collar service using empty data  for firmwareVersion
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -50,16 +50,16 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "imei" : "Generated-imei",
+    "deviceId" : "Generated-deviceId",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : ""
 }
 
-Then the service response should be: 409
+Then the service response should be: 201
 
 
 
-Scenario: Negative TC-004: Verify  Add Collar service using invalid data  for imei
+Scenario: TC-004_COLLAR_Negative: Verify Add Collar service using invalid data  for deviceId
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -75,7 +75,7 @@ And we set Body with {
 Then the service response should be: 409
 
 
-Scenario: Negative TC-005: Verify  Add Collar service using invalid data  for hardwareVersion
+Scenario: TC-005_COLLAR_Negative: Verify Add Collar service using invalid data  for hardwareVersion
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -83,15 +83,15 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "imei" : "123456788992",
+    "deviceId" : "Generated-deviceId",
     "hardwareVersion" : "%$",
     "firmwareVersion" : "1.1"
 }
 
-Then the service response should be: 409
+Then the service response should be: 201
 
 
-Scenario: Negative TC-006: Verify  Add Collar service using invalid data  for firmwareVersion
+Scenario: TC-006_COLLAR_Negative: Verify Add Collar service using invalid data  for firmwareVersion
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -99,14 +99,14 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {	
-    "imei" : "123456788992",
+    "deviceId" : "Generated-deviceId",
     "hardwareVersion" : "123",
     "firmwareVersion" : "(^)"
 }
 
-Then the service response should be: 409
+Then the service response should be: 201
                                     
-Scenario: Negative TC-008: Verify  Add Collar service using data  for Non consistent token with the id
+Scenario: TC-007_COLLAR_Negative: Verify Add Collar service using deleted data  for  exist collar
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -115,14 +115,14 @@ And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And add to the header Authorization with value 55dffa77-870e-4c81-bfaf-c147944f2d31
 And we set Body with {
-    "imei" : "24634756734522",
+    "deviceId" : "24634756734522",
     "hardwareVersion" : "DS5s60",
     "firmwareVersion" : "1.1"
 }
 
 Then the service response should be: 401
 
-Scenario: Negative TC-009: Verify  Add Collar service using empty data  for All parametes
+Scenario: TC-009_COLLAR_Negative: Verify Add Collar service using empty data  for All parametes
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -130,7 +130,7 @@ When service url equal : Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-    "imei" : "",
+    "deviceId" : "",
     "hardwareVersion" : "",
     "firmwareVersion" : ""
 }
