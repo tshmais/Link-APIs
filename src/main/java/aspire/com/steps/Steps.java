@@ -52,7 +52,7 @@ public class Steps {
 	public static String Date;
 	public String ZipCode;
 	public String Location;
-	public String imei;
+	public String deviceId;
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
 	public List<String> dataList = new ArrayList<String>();
@@ -184,13 +184,33 @@ public class Steps {
 			json = json.replace("Generated-Email", emailAddress);
 		}
 
-		if (json.contains("Generated-imei")) {
-			imei = "123456789"
-					+ Integer.toString((int) Math.round(Math.random() * 99999));
-			json = json.replace("Generated-imei", imei);
+		if (json.contains("Generated-deviceId")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String Device_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-deviceId", Device_ID);
+		}
+		
+		if (json.contains("Generated-macid")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String MAC_ID = "000567A" + newrand;
+			
+			json = json.replace("Generated-macid", MAC_ID);
 		}
 		reqHandler.setRequestBody(json);
 		System.out.print(json);
+		
+		if (json.contains("LoginID")) {
+			 
+			
+			json = json.replace("LoginID", response2);
+			
+		}
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		
 
 	}
 
@@ -377,12 +397,21 @@ public class Steps {
 			json = json.replace("Generated-Email", emailAddress);
 		}
 
-		if (json.contains("Generated-imei")) {
-			imei = "123456789"
-					+ Integer.toString((int) Math.round(Math.random() * 99999));
-			json = json.replace("Generated-imei", imei);
+		if (json.contains("Generated-deviceId")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String Device_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-deviceId", Device_ID);
 		}
 
+		if (json.contains("Generated-macid")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String mac_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-macid", mac_ID);
+		}
 		reqHandler.setRequestBody(json);
 		System.out.print(json);
 		CloseableHttpResponse resp = reqHandler.execute(myResponse);
@@ -420,9 +449,9 @@ public class Steps {
 	}
 
 	@Then("I want to pull the data from the DB using $query query with response ID")
+	@When("I want to pull the data from the DB using $query query with response ID")
 	public void getDBDataRID(String query) throws ClassNotFoundException,
 			SQLException {
-
 		String getQuery = String.format(EnvirommentManager.getInstance()
 				.getProperty(query));
 		getQuery = getQuery.replaceFirst("\\[parameter\\]", JsonValue);
