@@ -201,6 +201,16 @@ public class Steps {
 		}
 		reqHandler.setRequestBody(json);
 		System.out.print(json);
+		
+		if (json.contains("LoginID")) {
+			 
+			
+			json = json.replace("LoginID", response2);
+			
+		}
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		
 
 	}
 

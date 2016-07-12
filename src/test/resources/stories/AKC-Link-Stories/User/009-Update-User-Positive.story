@@ -69,7 +69,6 @@ And we set Body with
 
 Then the service response should be: 409
 
-
 Scenario: TC-003_USER_Negative: Verify Update User service using empty value in for name
 
 Given Create new user
@@ -97,3 +96,5 @@ And we set Body with
 }
 
 Then the service response should be: 409
+
+
