@@ -24,7 +24,6 @@ Then the service response should be: 400
 
 
 Scenario: Negative TC-003: Verify  Get all dogs for a user service using user not exist  for  user parameter
-
 Given Create new user
 And Login with valid cridintials
 And service method is get
