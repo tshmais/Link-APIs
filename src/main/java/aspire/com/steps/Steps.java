@@ -52,7 +52,7 @@ public class Steps {
 	public static String Date;
 	public String ZipCode;
 	public String Location;
-	public String imei;
+	public String deviceId;
 	Gson gson = new Gson();
 	MysqlConnector dbConn = new MysqlConnector();
 	public List<String> dataList = new ArrayList<String>();
@@ -60,10 +60,13 @@ public class Steps {
 	public String JsonValue2;
 
 	// Create Data
-	
+	int i;
 	public String User_Email;
 	public String access_token;
 	public String user_id;
+	int x;
+	int y;
+	int z;
 
 	private String getRootUrl() {
 
@@ -115,9 +118,9 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 	}
 
-	@When("the service url equal: $url with $param and $param2")
-	@Then("the service url equal: $url with $param and $param2")
-	public void setServicesURLwithParam2(String url,String param , String param2)
+	@When("service url equal : $url")
+	@Then("service url equal : $url")
+	public void setServicesURLwithParametr2(String url)
 			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
@@ -129,36 +132,12 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter\\]", param);
-		URL = URL.replaceFirst("\\[parameter\\]", param2);
-	
+		URL = URL.replaceFirst("\\[parameter\\]", response2);
+
 		reqHandler.setRequestUrl(URL);
 
 		ASReport.getInstance().append(URL);
 	}
-	
-	@When("service url equal : $url")
-	 @Then("service url equal : $url")
-	 public void setServicesURLwithParametr2(String url)
-	   throws URISyntaxException {
-	  if (url.toLowerCase().startsWith("http://www")
-	    || url.toLowerCase().startsWith("https://www")) {
-	   URL = url;
-	  } else if (url.startsWith("%s")) {
-	   URL = String.format(url, getRootUrl());
-	  } else {
-	   URL = String.format(
-	     EnvirommentManager.getInstance().getProperty(url),
-	     getRootUrl());
-	  }
-	  URL = URL.replaceFirst("\\[parameter\\]", response2);
-
-	  reqHandler.setRequestUrl(URL);
-
-	  ASReport.getInstance().append(URL);
-	 }
-	
-
 
 	@Given("service method is $method")
 	@When("service method is $method")
@@ -205,13 +184,33 @@ public class Steps {
 			json = json.replace("Generated-Email", emailAddress);
 		}
 
-		if (json.contains("Generated-imei")) {
-			imei = "123456789"
-					+ Integer.toString((int) Math.round(Math.random() * 99999));
-			json = json.replace("Generated-imei", imei);
+		if (json.contains("Generated-deviceId")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String Device_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-deviceId", Device_ID);
+		}
+		
+		if (json.contains("Generated-macid")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String MAC_ID = "000567A" + newrand;
+			
+			json = json.replace("Generated-macid", MAC_ID);
 		}
 		reqHandler.setRequestBody(json);
 		System.out.print(json);
+		
+		if (json.contains("LoginID")) {
+			 
+			
+			json = json.replace("LoginID", response2);
+			
+		}
+		reqHandler.setRequestBody(json);
+		System.out.print(json);
+		
 
 	}
 
@@ -398,12 +397,21 @@ public class Steps {
 			json = json.replace("Generated-Email", emailAddress);
 		}
 
-		if (json.contains("Generated-imei")) {
-			imei = "123456789"
-					+ Integer.toString((int) Math.round(Math.random() * 99999));
-			json = json.replace("Generated-imei", imei);
+		if (json.contains("Generated-deviceId")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String Device_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-deviceId", Device_ID);
 		}
 
+		if (json.contains("Generated-macid")) {
+			 int range = (99999 - 10000) ;     
+			  int newrand = (int) (Math.random() * range) + 10000;
+			String mac_ID = "2345678" + newrand;
+			
+			json = json.replace("Generated-macid", mac_ID);
+		}
 		reqHandler.setRequestBody(json);
 		System.out.print(json);
 		CloseableHttpResponse resp = reqHandler.execute(myResponse);
@@ -441,9 +449,9 @@ public class Steps {
 	}
 
 	@Then("I want to pull the data from the DB using $query query with response ID")
+	@When("I want to pull the data from the DB using $query query with response ID")
 	public void getDBDataRID(String query) throws ClassNotFoundException,
 			SQLException {
-
 		String getQuery = String.format(EnvirommentManager.getInstance()
 				.getProperty(query));
 		getQuery = getQuery.replaceFirst("\\[parameter\\]", JsonValue);
@@ -513,12 +521,10 @@ public class Steps {
 	 * } reqHandler.setRequestBody(jsonbody); System.out.print(jsonbody); } }
 	 */
 
-	@Given("Create users to url: $url with body: $body with method $method")
-	public void createnthItems( String url1, String body1,
+	@Given("Create $items Items to url: $url with body: $body with method $method")
+	public void createnthItems(int items1, String url1, String body1,
 			String method1) throws URISyntaxException, ClientProtocolException,
 			IOException {
-		
-	int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
 		// prepare URL
 		/*
 		 * String emailAddress1 = EnvirommentManager.getInstance()
@@ -526,86 +532,76 @@ public class Steps {
 		 */
 
 		// emails = emailAddress1.split(",");
-		for (int i = 1; i <= items1; i++) {
-			create_Users(items1, url1, body1, method1 ,i);
+		for (i = 1; i <= items1; i++) {
+			create_Users(items1, url1, body1, method1);
 
 		}
 
 	}
 
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and $dogs dog for each user and the same start with $name")
-	public void Create_Users_with_Dogs(String url1, String body1,
-			String user_name, String method1, String Dog_Name)
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $dogs dog for each user and the same start with $name")
+	public void Create_Users_with_Dogs(int items1, String url1, String body1,
+			String user_name, String method1, int dogs, String Dog_Name)
 			throws URISyntaxException, ClientProtocolException, IOException {
-		int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
-		int	dogs = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_dogs")));
-		for (int i = 1; i <= items1; i++) {
+
+		for (i = 1; i <= items1; i++) {
 
 			createUserswithdogs(items1, url1, body1, user_name, method1, dogs,
-					Dog_Name ,  i);
+					Dog_Name);
 
 		}
 	}
 	
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and BaseStations for each user")
-	public void Create_Users_with_BaseStation(String url1, String body1,
-			String user_name, String method1)
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $basestation BaseStation for each user")
+	public void Create_Users_with_BaseStation(int items1, String url1, String body1,
+			String user_name, String method1, int baseStation)
 			throws URISyntaxException, ClientProtocolException, IOException {
-		int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
-		int	basestations = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_basestations")));
-		for (int i = 1; i <= items1; i++) {
 
-			createUserswithbaseStation(items1, url1, body1, user_name, method1, basestations ,i
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithbaseStation(items1, url1, body1, user_name, method1, baseStation
 					);
 
 		}
 
 }
 	
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method and collars for each user")
-	public void Create_Users_with_collars(String url1, String body1,
-			String user_name, String method1)
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method and $collars collars for each user")
+	public void Create_Users_with_collars(int items1, String url1, String body1,
+			String user_name, String method1, int collars)
 			throws URISyntaxException, ClientProtocolException, IOException {
-		int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
-		int	collars = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_collars")));
-		for (int i = 1; i <= items1; i++) {
 
-			createUserswithcollars(items1, url1, body1, user_name, method1, collars ,i
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithcollars(items1, url1, body1, user_name, method1, collars
 					);
 
 		}
 
 }
 	
-	@Given("Create users to url : $url with body: $body and the name of users start with $user_name with method $method with collars and basestations for each user")
-	public void Create_Users_with_collarsAnd_Basestations(String url1, String body1,
-			String user_name, String method1)
+	@Given("Create $items Items to url : $url with body: $body and the name of users start with $user_name with method $method with $collars collars and $basestations basestations for each user")
+	public void Create_Users_with_collarsAnd_Basestations(int items1, String url1, String body1,
+			String user_name, String method1, int collars , int basestations)
 			throws URISyntaxException, ClientProtocolException, IOException {
-		int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
-		int	basestations = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_basestations")));
-		int	collars = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_collars")));
-		
-		for (int i = 1; i <= items1; i++) {
 
-			createUserswithcollarsAnd_Basestations(items1, url1, body1, user_name, method1, collars , basestations , i
+		for (i = 1; i <= items1; i++) {
+
+			createUserswithcollarsAnd_Basestations(items1, url1, body1, user_name, method1, collars , basestations
 					);
 
 		}
 
 }
 		
-	@Given("Create users to url : $url with body : $body and the name of users start with $user_name with method $method with dogs start with $Name and collars and basestations for each user")
-	public void Create_Users_with_Dogs_collarsAnd_Basestations(String url1, String body1,
-			String user_name, String method1, String Dog_name)
+	@Given("Create $items Items to url : $url with body : $body and the name of users start with $user_name with method $method with $Dogs dogs start with $Name and $collars collars and $basestations basestations for each user")
+	public void Create_Users_with_Dogs_collarsAnd_Basestations(int items1, String url1, String body1,
+			String user_name, String method1,int dogs, String Dog_name, int collars , int basestations)
 			throws URISyntaxException, ClientProtocolException, IOException {
-		int	items1 = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_users")));
-		int	dogs = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_dogs")));
-		int	basestations = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_basestations")));
-		int	collars = Integer.parseInt(String.format(EnvirommentManager.getInstance().getProperty("Number_Of_collars")));
-		
-		for (int i = 1; i <= items1; i++) {
 
-			createUserswith_dogs_collarsAnd_Basestations(items1, url1, body1, user_name, method1, dogs , Dog_name,collars , basestations ,i
+		for (i = 1; i <= items1; i++) {
+
+			createUserswith_dogs_collarsAnd_Basestations(items1, url1, body1, user_name, method1, dogs , Dog_name,collars , basestations
 					);
 
 		}
@@ -614,7 +610,7 @@ public class Steps {
 		
 		
 
-	private void create_Users(int items, String url, String body, String method ,int i)
+	private void create_Users(int items, String url, String body, String method)
 			throws URISyntaxException, ClientProtocolException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
@@ -646,7 +642,7 @@ public class Steps {
 		reqHandler.setRequestHeader(name, value);
 
 		String jsonbody = EnvirommentManager.getInstance().getProperty(body);
-		User_Email = "linkusers_userslink" + i + "@LinkAKC.com";
+		User_Email = "newusers" + i + "@LinkAKC.com";
 
 		if (jsonbody.contains("Generated-Email")) {
 
@@ -661,7 +657,7 @@ public class Steps {
 	}
 
 	private void createUserswithdogs(int items, String url, String body,
-			String username, String method, int Dogs, String Dog_Name ,int i)
+			String username, String method, int Dogs, String Dog_Name)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -706,17 +702,17 @@ public class Steps {
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
 		}
-		for (int z = 1; z <= Dogs; z++) {
+		for (x = 1; x <= Dogs; x++) {
 
 			login();
-			create_dog(method, Dog_Name ,z , i);
+			create_dog(method, Dog_Name);
 
 		}
 
 	}
 
 	private void createUserswithbaseStation(int items, String url, String body,
-			String username, String method, int BaseStations , int i)
+			String username, String method, int BaseStations)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -761,7 +757,7 @@ public class Steps {
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
 		}
-		for (int x = 1; x <= BaseStations; x++) {
+		for (x = 1; x <= BaseStations; x++) {
 
 			login();
 			Create_BaseStation (url,method);
@@ -771,7 +767,7 @@ public class Steps {
 	}
 	
 	private void createUserswithcollars(int items, String url, String body,
-			String username, String method, int collars ,int i)
+			String username, String method, int collars)
 			throws URISyntaxException, ClientProtocolException, IOException {
 
 		String name = "Content-Type";
@@ -816,7 +812,7 @@ public class Steps {
 			jsonResponse = parsers.asJson(resp);
 			System.out.print(jsonResponse);
 		}
-		for (int x = 1; x <= collars; x++) {
+		for (x = 1; x <= collars; x++) {
 
 			login();
 			Create_Collars (url,method);
@@ -825,7 +821,7 @@ public class Steps {
 
 	}
 	
-	private void	createUserswithcollarsAnd_Basestations(int items, String url, String body, String username,String method, int collars ,int basestations , int i
+	private void	createUserswithcollarsAnd_Basestations(int items, String url, String body, String username,String method, int collars ,int basestations
 			) throws ClientProtocolException, URISyntaxException, IOException{		String name = "Content-Type";
 			String value = "application/json";
 			Method methodName;
@@ -868,14 +864,14 @@ public class Steps {
 				jsonResponse = parsers.asJson(resp);
 				System.out.print(jsonResponse);
 			}
-			for (int x = 1; x <= collars; x++) {
+			for (x = 1; x <= collars; x++) {
 
 				login();
 				Create_Collars (url,method);
 				
 				}
 			
-			for (int y = 1; y <= basestations; y++) {
+			for (y = 1; y <= basestations; y++) {
 
 				login();
 				Create_BaseStation  (url,method);
@@ -885,7 +881,7 @@ public class Steps {
 	}
 	
 	
-	private void	createUserswith_dogs_collarsAnd_Basestations(int items, String url, String body, String username,String method, int dogs , String dog_name, int collars ,int basestations, int i
+	private void	createUserswith_dogs_collarsAnd_Basestations(int items, String url, String body, String username,String method, int dogs , String dog_name, int collars ,int basestations
 			) throws ClientProtocolException, URISyntaxException, IOException{		String name = "Content-Type";
 			String value = "application/json";
 			Method methodName;
@@ -928,24 +924,24 @@ public class Steps {
 				jsonResponse = parsers.asJson(resp);
 				System.out.print(jsonResponse);
 			}
-			for (int x = 1; x <= collars; x++) {
+			for (x = 1; x <= collars; x++) {
 
 				login();
 				Create_Collars (url,method);
 				
 				}
 			
-			for (int y = 1; y <= basestations; y++) {
+			for (y = 1; y <= basestations; y++) {
 
 				login();
 				Create_BaseStation  (url,method);
 				
 				}
 			
-			for (int z = 1; z <= basestations; z++) {
+			for (z = 1; z <= basestations; z++) {
 
 				login();
-				create_dog(method,dog_name , z, i);
+				create_dog(method,dog_name);
 				
 				}
 			
@@ -992,7 +988,7 @@ public class Steps {
 				String.class);
 	}
 
-	public void create_dog(String method, String Dog_Name ,int z , int i)
+	public void create_dog(String method, String Dog_Name)
 			throws URISyntaxException, ParseException, IOException {
 		String name = "Content-Type";
 		String value = "application/json";
@@ -1027,7 +1023,7 @@ public class Steps {
 		String jsonbody = EnvirommentManager.getInstance().getProperty(
 				"createdogbody");
 
-		String Dog_Name1 = Dog_Name + i + z;
+		String Dog_Name1 = Dog_Name + i + x;
 
 		if (jsonbody.contains("Generated-name")) {
 

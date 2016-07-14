@@ -1,8 +1,3 @@
 Meta:
-@CreateData
-
-
-Scenario: Create Users associated with baseStations only 
-
-Given Create users to url : Create_User_service with body: createuserbody and the name of users start with bvasestation_users with method post and BaseStations for each user
-
+@skip
+Given Create 5 Items to url : Create_User_service with body: createuserbody and the name of users start with basestationusers with method post and 2 BaseStation for each user
