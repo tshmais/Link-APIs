@@ -81,7 +81,7 @@ And we set Body with
     "loginProviderToken": ""
    }
 }
-Then the service response should be: 409
+Then the service response should be: 201
 
 Scenario: Negative TC-005: Verif Create User service using empty data  for timezone
 Given service method is post
@@ -105,7 +105,7 @@ And we set Body with
 	   "loginProviderToken": ""
 	  }
 }
-Then the service response should be: 409
+Then the service response should be: 201
 
 Scenario: Negative TC-006: Verif Create User service using empty data  for locale
 Given service method is post
@@ -129,7 +129,7 @@ And we set Body with
     "loginProviderToken": ""
    }
 }
-Then the service response should be: 409
+Then the service response should be: 201
 
 Scenario: Negative TC-007: Verif Create User service using empty data  for loginProvider
 Given service method is post

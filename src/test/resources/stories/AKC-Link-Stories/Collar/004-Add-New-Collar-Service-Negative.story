@@ -15,7 +15,7 @@ Scenario: Negative TC-001: Verify  Add Collar service using empty data  for imei
 Given Create new user
 And Login with valid cridintials
 And service method is post
-When service url equal : Add_New_Collar_service
+When the service url equal: Add_New_Collar_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {

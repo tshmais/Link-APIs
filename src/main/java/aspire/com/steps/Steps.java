@@ -115,9 +115,9 @@ public class Steps {
 		ASReport.getInstance().append(URL);
 	}
 
-	@When("service url equal : $url")
-	@Then("service url equal : $url")
-	public void setServicesURLwithParametr2(String url)
+	@When("the service url equal: $url with $param and $param2")
+	@Then("the service url equal: $url with $param and $param2")
+	public void setServicesURLwithParam2(String url,String param , String param2)
 			throws URISyntaxException {
 		if (url.toLowerCase().startsWith("http://www")
 				|| url.toLowerCase().startsWith("https://www")) {
@@ -129,12 +129,36 @@ public class Steps {
 					EnvirommentManager.getInstance().getProperty(url),
 					getRootUrl());
 		}
-		URL = URL.replaceFirst("\\[parameter\\]", response2);
-
+		URL = URL.replaceFirst("\\[parameter\\]", param);
+		URL = URL.replaceFirst("\\[parameter\\]", param2);
+	
 		reqHandler.setRequestUrl(URL);
 
 		ASReport.getInstance().append(URL);
 	}
+	
+	@When("service url equal : $url")
+	 @Then("service url equal : $url")
+	 public void setServicesURLwithParametr2(String url)
+	   throws URISyntaxException {
+	  if (url.toLowerCase().startsWith("http://www")
+	    || url.toLowerCase().startsWith("https://www")) {
+	   URL = url;
+	  } else if (url.startsWith("%s")) {
+	   URL = String.format(url, getRootUrl());
+	  } else {
+	   URL = String.format(
+	     EnvirommentManager.getInstance().getProperty(url),
+	     getRootUrl());
+	  }
+	  URL = URL.replaceFirst("\\[parameter\\]", response2);
+
+	  reqHandler.setRequestUrl(URL);
+
+	  ASReport.getInstance().append(URL);
+	 }
+	
+
 
 	@Given("service method is $method")
 	@When("service method is $method")

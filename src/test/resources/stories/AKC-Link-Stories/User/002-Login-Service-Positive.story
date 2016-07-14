@@ -11,7 +11,7 @@ When the service url is: Login_service
 And add to the header Content-Type with value application/json
 And we set Body with {
     "loginProvider" : "LINK",
-    "loginProviderId" : "Auto1@gmail.com",
+    "loginProviderId" : "user17742@linkbyakc.com",
     "password" : "P@ssw0rd",
     "loginProviderToken" : ""
 }
@@ -24,7 +24,7 @@ When the service url is: Login_service
 And add to the header Content-Type with value application/json
 And we set Body with {
     "loginProvider" : "LINK",
-    "loginProviderId" : "14user@linkakc.com",
+    "loginProviderId" : "3user@linkakc.com",
     "password" : "P@ssw0rd",
     "token" : ""
 }

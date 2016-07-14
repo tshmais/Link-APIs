@@ -10,7 +10,8 @@ In order to test User's_Dogs service
 As a tester
 I want to make sure all return the code 4xx for POST scenarios and 2xx for optinal parameter
 
-Scenario: Negative TC-001: Verify  Add User Dog service using empty data  for name
+Scenario: TC-001_DOG_Negative: Verify Add Dog service using empty data  for name
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -18,28 +19,30 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "2",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 0,
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-001_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-001_Post_Dog_to_User_service
 
 
-Scenario:Negative TC-002: Verify  Add User Dog service using empty data  for photo
+Scenario: TC-002_DOG_Negative: Verify Add Dog service using empty data  for photo
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -47,27 +50,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "",
-  "gender": "M",
-  "neutered": "false",
-  "age": "2",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 1,
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 201
 |--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-003: Verify  Add User Dog service using empty data  for gender
+Scenario: TC-003_DOG_Negative: Verify Add Dog service using empty data  for gender
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -75,28 +80,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "",
-  "neutered": "false",
-  "age": "2",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "photo",
+    "gender" : "",
+    "neutered" : false,
+    "age" : 1,
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
-    
-Then the service response should be: 409
-|--And json response should equal:Negative_TC-003_Post_Dog_to_User_service
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
-Scenario:Negative TC-004: Verify  Add User Dog service using empty data  for neutered
+Scenario: TC-004_DOG_Negative: Verify Add Dog service using empty data  for neutered
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -104,28 +110,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "",
-  "age": "2",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "photo",
+    "gender" : "M",
+    "neutered" : "",
+    "age" : 1,
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
-    
-Then the service response should be: 409
-|--And json response should equal:Negative_TC-004_Post_Dog_to_User_service
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-002_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-005: Verify Add User Dog service using empty data  for age
+Scenario: TC-005_DOG_Negative: Verify Add Dog service using empty data  for age
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -133,27 +140,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 409
 And json response should equal:Negative_TC-005_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-006: Verify  Add User Dog service using empty data  for purebred
+Scenario: TC-006_DOG_Negative: Verify Add Dog service using empty data  for breedSource
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -161,28 +170,31 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "",
-  "breedId1": "1",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "5",
+    "breedSource": "",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario:Negative TC-007: Verify  Add User Dog service using empty data with purebred "true" for breedId1 , breedId2
+Scenario: TC-007_DOG_Negative: Verify Add Dog service when breedSource is "listed Breed" and breedId1, breedId2 are empty
+
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -190,114 +202,61 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "true",
-  "breedId1": "",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}
-    
-Then the service response should be: 201
-|--And json response should equal:Negative_TC-007_Post_Dog_to_User_service
-
-
-Scenario: Negative TC-008: Verify  Add User Dog service using empty data with purebred "false" for breedId1 , breedId2
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "",
-  "breedId2": "",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}
-Then the service response should be: 201
-|--And json response should equal:Negative_TC-008_Post_Dog_to_User_service
-
-Scenario: Negative TC-009:Verify Add User Dog service using empty data with purebred "false" and pass data for breedId1 and 2 for breed_id1_percentage
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "",
-  "description": "$",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "5",
+    "breedSource": "Listed Breed",
+    "breedId1" : "",
+    "breedId2" : "",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-009_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-010: Verify  Add User Dog service using empty data  for description
+Scenario: TC-008_DOG_Negative: Verify Add Dog service when breedSource is "listed Breed" and only breedId2 is provided
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
 When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "",
-  "dateOfBirth": "03-07-2013",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "5",
+    "breedSource": "Listed Breed",
+    "breedId1" : "",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-0010_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-011: Verify  Add User Dog service using empty data  for dateOfBirth
+Scenario: TC-009_DOG_Negative: Verify Add Dog service when breedSource is "listed Breed" and breedId1, breedId2 are provided and breedId1Percentage is 40
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -305,58 +264,61 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "",
-  "weight": "8.9",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "40",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-0011_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-012: Verify  Add User Dog service using empty data  for weight
+Scenario: TC-010_DOG_Negative: Verify Add Dog service when breedSource is "unlisted Breed" and unlistedBreedName is empty
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
 When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
-
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "",
+    "breedId2" : "",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-0012_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-013: Verify  Add User Dog service using empty data  for eyeColor
+Scenario: TC-011_DOG_Negative: Verify Add Dog service when breedSource is "unlisted Breed" and unlistedBreedName is more than 100 character long
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -364,28 +326,30 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "",
+    "breedId2" : "",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 409
-And json response should equal:Negative_TC-0013_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-014: Verify Add User Dog service using empty data for weightClass
+Scenario: TC-012_DOG_Negative: Verify Add Dog service when breedSource is "unlisted Breed" and breedId1, breedId2 are provided and breedId1Percentage is 40
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -393,56 +357,30 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "25",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "",
-  "akcRegistrationNo": ""
-}
-Then the service response should be: 409
-|--And json response should equal:Negative_TC-0014_Post_Dog_to_User_service
-
-
-Scenario: Negative TC-015: Verify Add User Dog service using empty data for akcRegistrationNo
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "D123",
-  "photo": "https://cdn.xyz.com/…..jpg",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
     
 Then the service response should be: 201
-|--And json response should equal:Negative_TC-0015_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-016: Add User Dog service by pass invalid data for name parameter
+Scenario: TC-013_DOG_Negative: Verify Add a Dog service using empty data  for eyeColor
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -450,27 +388,240 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "22##@*&",
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+    
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+
+
+Scenario: TC-014_DOG_Negative: Verify Add a Dog service using empty data  for weightClass
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "",
+    "akcRegistrationNo" : "ABC00123"
+}
+    
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+
+
+Scenario: TC-015_DOG_Negative: Verify Add a Dog service using empty data  for akcRegistrationNo
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : ""
+}
+    
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+
+
+Scenario: TC-016_DOG_Negative: Verify Add a Dog service using  invalid data  for name
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : " ",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 409
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+
+Scenario: TC-017_DOG_Negative: Verify Add a Dog service using invalid data  for photo
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Dog Name",
+    "photo" : "@@@@@",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "New Breed",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 201
+|--And json response should equal:Negative_TC-006_Post_Dog_to_User_service
+
+
+Scenario: TC-018_DOG_Negative: Verify Add Dog service using invalid data  for gender
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "S",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 409
+|--And json response should equal:Negative_TC-0018_Post_Dog_to_User_service
+
+
+Scenario: TC-019_DOG_Negative: Verify Add Dog service using invalid data  for neutered
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : "sss",
+    "age" : "3",
+    "breedSource": "unknown breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 400
+
+
+Scenario: TC-020_DOG_Negative: Verify Add Dog service using invalid data  for age
+
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+  "name": "Pucy",
   "photo": "https://cdn.xyz.com/…..jpg",
   "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
+  "neutered": false,
+  "age": "*",
+  "breedSource": "",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
+  "breedId1Percentage": "75",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "2013-03-07",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}  
-Then the service response should be: 201
-|--And json response should equal:Negative_TC-0016_Post_Dog_to_User_service
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
+}
+Then the service response should be: 400
 
 
-Scenario: Negative TC-017: Verify  Add User Dog service using invalid data  for photo
+Scenario: TC-021_DOG_Negative: Verify Add Dog service using invalid data  for purebred
+
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -478,55 +629,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "M",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}    
-Then the service response should be: 201
-|--And json response should equal:Negative_TC-0017_Post_Dog_to_User_service
-
-
-Scenario: Negative TC-018: Verify  Add User Dog service using invalid data  for gender
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": ")",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}  
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "test",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
 Then the service response should be: 409
-And json response should equal:Negative_TC-0018_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-019: Verify  Add User Dog service using invalid data  for neutered
+Scenario: TC-022_DOG_Negative: Verify Add a Dog service using invalid data  for breedId1
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -534,53 +658,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "@",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}   
-Then the service response should be: 400
-
-
-Scenario: Negative TC-020: Verify  Add User Dog service using invalid data  for age
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "#$",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "s",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 400
 
 
-Scenario: Negative TC-021: Verify  Add User Dog service using invalid data  for purebred
+Scenario: TC-023_DOG_Negative: Verify Add a Dog service using invalid data  for breedId2
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -588,26 +687,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "#$",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "gf",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 400
 
 
-Scenario: Negative TC-022: Verify  Add User Dog service using invalid data  for breedId1
+Scenario: TC-024_DOG_Negative: Verify Add Dog service using invalid data  for breed_id1_percentage
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -615,26 +716,30 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "#",
-  "breedId2": "2",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "39",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
-Then the service response should be: 400
+
+Then the service response should be: 409
 
 
-Scenario:Negative TC-023: Verify  Add User Dog service using invalid data  for breedId2
+
+Scenario: TC-025_DOG_Negative: Verify Add Dog service using invalid data  for description
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -642,83 +747,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "@",
-  "breed_id1_percentage": "1",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-} 
-Then the service response should be: 400
-
-
-
-Scenario: Negative TC-024: Verify  Add User Dog service using invalid data  for breed_id1_percentage
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 4,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "^",
-  "description": "q",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
+  "breedId1Percentage": "75",
+  "unlistedBreedName": "New Breed",
+  "description": "#@",
+  "dateOfBirth": "2013-03-07",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-}
-Then the service response should be: 400
-
-
-
-Scenario: Negative TC-025: Verify  Add User Dog service using invalid data  for description
-Given Create new user
-And Login with valid cridintials
-And service method is post
-When service url equal : Post_Dog_to_User_service
-And add to the header Content-Type with value application/json
-And add Session Authorization to Request header
-And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "#",
-  "dateOfBirth": "03-07-2013",
-  "weight": "5",
-  "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
 }
 Then the service response should be: 201
 |--And json response should equal:Negative_TC-0025_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-026: Verify  Add User Dog service using invalid data  for dateOfBirth
+Scenario: TC-026_DOG_Negative: Verify Add Dog service using invalid data  for dateOfBirth
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -726,26 +777,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 4,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "00/00/00",
-  "weight": "5",
+  "breedId1Percentage": "75",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "00\00\00",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
 }
 Then the service response should be: 400
 
 
-Scenario: Negative TC-027: Verify  Add User Dog service using invalid data  for weight
+Scenario: TC-027_DOG_Negative: Verify Add Dog service using invalid data  for weight
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -753,26 +806,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 4,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "#",
+  "breedId1Percentage": "75",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "2013-03-07",
+  "weight": "@",
   "eyeColor": "BROWN",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
-} 
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
+}
 Then the service response should be: 400
 
 
-Scenario: Negative TC-028: Verify  Add User Dog service using invalid data  for eyeColor
+Scenario: TC-028_DOG_Negative: Verify Add a Dog service using Future date for dateOfBirth
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -780,27 +835,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
-  "eyeColor": "*",
-  "weightClass": "ee",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2017-12-08",
+    "weight" : "8.9",
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0028_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-029: Verify  Add User Dog service using invalid data  for weightClass
+Scenario: TC-029_DOG_Negative: Verify Add a Dog service using invalid data  for weightClass
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -808,27 +864,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
-  "eyeColor": "BROWN",
-  "weightClass": "%",
-  "akcRegistrationNo": ""
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2013-12-08",
+    "weight" : "8.9",
+    "eyeColor" : "BROWN",
+    "weightClass" : "@@",
+    "akcRegistrationNo" : "ABC00123"
 }
-Then the service response should be: 409
-And json response should equal:Negative_TC-0029_Post_Dog_to_User_service
+Then the service response should be: 201
 
 
-Scenario: Negative TC-030: Verify  Add User Dog service using invalid data  for akcRegistrationNo
+Scenario: TC-030_DOG_Negative: Verify Add a Dog service using invalid data  for akcRegistrationNo
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -836,27 +893,28 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
-  "breedId1": "1",
-  "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
-  "eyeColor": "BROWN",
-  "weightClass": "5",
-  "akcRegistrationNo": "#$"
+    "name" : "Dog Name",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : "3",
+    "breedSource": "listed breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "50",
+    "unlistedBreedName": "test",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2013-12-08",
+    "weight" : "8.9",
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "@@"
 }
-Then the service response should be: 400
-And json response should equal:Negative_TC-0030_Post_Dog_to_User_service
+Then the service response should be: 201
 
 
-Scenario: Negative TC-031: Verify  Add User Dog service using empty data  for all
+Scenario: TC-031_DOG_Negative: Verify Add Dog service using empty data  for all
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -869,10 +927,11 @@ And we set Body with {
   "gender": "",
   "neutered": "",
   "age": "",
-  "purebred": "",
+  "breedSource": "",
   "breedId1": "",
   "breedId2": "",
-  "breed_id1_percentage": "",
+  "breedId1Percentage": "",
+  "unlistedBreedName": "",
   "description": "",
   "dateOfBirth": "",
   "weight": "",
@@ -881,10 +940,11 @@ And we set Body with {
   "akcRegistrationNo": ""
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0031_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0031_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-032: Verify  Add User Dog service using invalid data  (-1,0,24, 26,49,51,74,76,60,100,255) for breed_id1_percentage
+Scenario: TC-032_DOG_Negative: Verify Add Dog service using invalid data  (-1,0,24, 26,49,51,74,76,60,100,255) for breed_id1_percentage
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -892,27 +952,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "5",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 4,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "24",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
+  "breedId1Percentage": "0",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "2013-03-07",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "5",
-  "akcRegistrationNo": ""
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0032_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0032_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-033: Verify  Add User Dog service using  invalid data (-1) for age
+Scenario: TC-033_DOG_Negative: Verify Add Dog service using  invalid data (-1) for age
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -920,27 +982,29 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "-1",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 4,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
+  "breedId1Percentage": "-1",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "2013-03-07",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "5",
-  "akcRegistrationNo": ""
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0033_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0033_Post_Dog_to_User_service
 
 
-Scenario: Negative TC-034: Verify  Add User Dog service using invalid data  (51) for age
+Scenario: TC-034_DOG_Negative: Verify Add Dog service using invalid data  (51) for age
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -948,21 +1012,22 @@ When service url equal : Post_Dog_to_User_service
 And add to the header Content-Type with value application/json
 And add Session Authorization to Request header
 And we set Body with {
-  "name": "ID",
-  "photo": "",
-  "gender": "F",
-  "neutered": "false",
-  "age": "66",
-  "purebred": "false",
+  "name": "Pucy",
+  "photo": "https://cdn.xyz.com/…..jpg",
+  "gender": "M",
+  "neutered": false,
+  "age": 51,
+  "breedSource": "Listed Breed",
   "breedId1": "1",
   "breedId2": "2",
-  "breed_id1_percentage": "25",
-  "description": "t",
-  "dateOfBirth": "03-07-2013",
-  "weight": "3",
+  "breedId1Percentage": "50",
+  "unlistedBreedName": "New Breed",
+  "description": "My dog Pucy",
+  "dateOfBirth": "2013-03-07",
+  "weight": 8.9,
   "eyeColor": "BROWN",
-  "weightClass": "5",
-  "akcRegistrationNo": ""
+  "weightClass": "NA",
+  "akcRegistrationNo": "ABC00123"
 }
 Then the service response should be: 409
-And json response should equal:Negative_TC-0034_Post_Dog_to_User_service
+|--And json response should equal:Negative_TC-0034_Post_Dog_to_User_service
