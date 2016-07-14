@@ -10,7 +10,7 @@ In order to test Create_User service
 As a tester
 I want to make sure all return the code 201
                                   
-Scenario:TC-001_USER_Positive: Verify Create User service using valid data for new user (M)
+Scenario: Positive TC-001: Verif Create User service using valid data for new user (M)
 Given service method is post
 When the service url is: Create_User_service
 And add to the header Content-Type with value application/json
@@ -33,6 +33,10 @@ And we set Body with
    }
 }
 Then the service response should be: 201
+   }
+}
+Then the service response should be: 201
 And I want to open a connection to MySQL DB
 And I want to pull the data from the DB using TC-001_select_user query
 And print the value
+
