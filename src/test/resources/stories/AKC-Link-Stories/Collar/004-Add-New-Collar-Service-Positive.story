@@ -5,10 +5,6 @@ Meta:
 @Collar
 @Link
 
-
-
-
-
 Narrative:
 In order to test New_Collar service
 As a tester
@@ -27,3 +23,8 @@ And we set Body with {
     "firmwareVersion" : "1.1"
 }
 Then the service response should be: 201
+And I want to open a connection to MySQL DB
+And Retrieve Json path $.id response
+And I want to pull the data from the DB using TC-001_select_collar query with response ID
+And print the value
+
