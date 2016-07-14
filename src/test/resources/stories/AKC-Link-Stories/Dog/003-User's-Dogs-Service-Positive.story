@@ -13,7 +13,6 @@ I want to make sure all return the code 201 for POST scenarios and 200 for GET s
 
 Scenario: TC-001_DOG_Positive: Verify Add Dog service using valid user data for valid dog data
 
-
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -243,6 +242,36 @@ And I want to open a connection to MySQL DB
 And Retrieve Json path $.id response
 And I want to pull the data from the DB using TC-001_select_Dog query with response ID
 And print the value
+
+
+Scenario: TC-009_DOG_Positive: Verify Add Dog service using "breedSource" as Unlisted  Breed"  and breedId1/breedId2/ are provided and breedId1Percentage is provided as 25 and unlistedBreedName is empty
+
+   
+Given Create new user
+And Login with valid cridintials
+And service method is post
+When service url equal : Post_Dog_to_User_service
+And add to the header Content-Type with value application/json
+And add Session Authorization to Request header
+And we set Body with {
+    "name" : "Pucy",
+    "photo" : "https://cdn.xyz.com/…..jpg",
+    "gender" : "M",
+    "neutered" : false,
+    "age" : 4,
+    "breedSource": "Unlisted breed",
+    "breedId1" : "1",
+    "breedId2" : "2",
+    "breedId1Percentage" : "25",
+    "unlistedBreedName": "",
+    "description" : "My dog Pucy",
+    "dateOfBirth" : "2015-12-08",
+    "weight" : 8.9,
+    "eyeColor" : "BROWN",
+    "weightClass" : "NA",
+    "akcRegistrationNo" : "ABC00123"
+}
+Then the service response should be: 409
 
 
 Scenario: TC-010_DOG_Positive: Verify Add Dog service using "breedSource" as Unlisted  Breed"  and only unListedBreedName is provided
@@ -476,7 +505,8 @@ And I want to pull the data from the DB using TC-001_select_Dog query with respo
 And print the value
 
 
-Scenario: Positive TC-017: Verify Add User Dog service using 1 for Age
+Scenario: TC-017_DOG_Positive: Verify Add Dog service using 0 and Age
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -508,7 +538,8 @@ And I want to pull the data from the DB using TC-001_select_Dog query with respo
 And print the value
 
 
-Scenario: Positive TC-018: Verify Add User Dog service using 50 for Age
+Scenario: TC-018_DOG_Positive: Verify Add Dog service using 50 and Age
+
 Given Create new user
 And Login with valid cridintials
 And service method is post
@@ -540,7 +571,8 @@ And I want to pull the data from the DB using TC-001_select_Dog query with respo
 And print the value
 
 
-Scenario: Positive TC-019: Verify Add User Dog service using 25 for Age  
+Scenario: TC-019_DOG_Positive: Verify Add Dog service using 25 and Age
+  
 Given Create new user
 And Login with valid cridintials
 And service method is post
